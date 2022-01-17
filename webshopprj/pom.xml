@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>webshopprj.com</groupId>
+  <artifactId>webshopprj</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<!-- maven이 사용할 기본 자바 버전을 명명하는 역할, 간단히 source, target으로 넣어도 좋다. -->
+  </properties>
+</project>
+
+<!--  pom.xml(Project Object Model)은 Maven의 기본 작업 단위이며, 프로젝트를 빌드하기 위해 Maven에서 사용하는 프로젝트 및 구성 세부사항이 포함된 XML파일이다. -->
