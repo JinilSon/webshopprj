@@ -1,27 +1,39 @@
 *{
 	margin : 0px;
 	padding : 0px;
-}
-
-html, body, #root, #body{
-	width: 100%;
-	height: 100%;
-	background:pink;
 	
 }
 
-#root{
+ul{
+	list-style: none;
+	margin : 10px 0px 10px 0px;
+}
+li{
+	margin : 10px 0px 10px 0px;
+}
+
+html, body, .root, .body{
+	width: 100%;
+	height: 100%;
+}
+
+.root{
 	min-height : 100%;
 	overflow : auto;
 	text-align : center;
 }
 
-#body{
+.body{
+	min-width : 1500px;
 	display : inline-block;
 	background: white;
 }
 
-#header{
+.header, .footer{
+	display : block;
+}
+
+.header{
 	height : 100px;
 	position : sticky;
 	top : 0 ;
@@ -31,14 +43,32 @@ html, body, #root, #body{
 	z-index: 1;
 }
 
-#content{
+.content{
+	width : 1400px;
 	position : relative;
-	padding-top : 100px;
-	padding-bottom : 100px;
 	height : 1400px;
+	margin : 0 auto;
 	background : yellow;
 }
-#footer{
+
+.content-left{
+	width: 10%;
+	height: 100%;
+	float : left;
+	background: red;
+	
+}
+.content-right{
+	width: 90%;
+	height: 100%;
+	float : right;
+	background: green;
+	
+}
+
+
+
+.footer{
 	height : 100px;
 	background : black;
 }
