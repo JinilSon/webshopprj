@@ -2,7 +2,7 @@ $(function(){
   var currentPosition = parseInt($(".content-left").css("top"));
   $(".body").scroll(function() {
     var position = $(".body").scrollTop(); 
-	console.log(position);
+    
     $(".content-left").stop().animate({"top":position+currentPosition+"px"},1000);
   });
 });
