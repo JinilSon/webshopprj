@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")				// 본래 dispatcher가 연결시켜주어야 할 빈들을 @ReqeustMapping 어노테이션과 xml에서 component-scan을 사용함으로써 코드를 단축시킬 수 있다.
 public class FrontController {
 	
+//	@RequestMapping("main")
+////	@ResponseBody
+//	public String main() {
+//		return "main";
+//	}
+	
 	@RequestMapping("main")
 //	@ResponseBody
-	public String main() {
+	public String jsp() {
 		return "main";
 	}
 	

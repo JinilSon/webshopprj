@@ -25,6 +25,7 @@
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
   	</dependency>
+  	<!-- JSTL : JSP표준 태그 라이브러리(자신만의 태그를 추가할 수 있는 기능 및 c:if, c:forEach 형식의 태그들을 제공  -->
   </dependencies>
 </project>
 

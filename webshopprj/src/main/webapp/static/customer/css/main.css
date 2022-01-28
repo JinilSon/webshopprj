@@ -81,10 +81,10 @@ html, body, .root, .body{
 }
 
 .header-left-search{
-	height : 80px;
-	margin : 10px 0px 0px 50px;
+	height : 60px;
+	margin : 20px 0px 0px 50px;
 	border : 0px;
-	border-radius : 15px;
+	border-bottom : 4px solid;
 	font-size: 30px;
 	font-weight : bold;
 }
