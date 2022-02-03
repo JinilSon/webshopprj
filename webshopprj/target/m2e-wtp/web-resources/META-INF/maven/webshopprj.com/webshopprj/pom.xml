@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
+  	<org.springframework-version>5.2.19.RELEASE</org.springframework-version>
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
   	<!-- maven이 사용할 기본 자바 버전을 명명하는 역할, 간단히 source, target으로 넣어도 좋다. -->
@@ -26,6 +27,36 @@
   		<version>1.2</version>
   	</dependency>
   	<!-- JSTL : JSP표준 태그 라이브러리(자신만의 태그를 추가할 수 있는 기능 및 c:if, c:forEach 형식의 태그들을 제공  -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-jdbc</artifactId>
+  		<version>5.2.19.RELEASE</version>
+  	</dependency>
+  	
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.13.2</version>
+	    <scope>test</scope>
+	</dependency>
+  	<!-- junit : 전체 프로젝트를 WAS를 구동하지 않고 테스트할 수 있게 해주는 라이브러리 -->
+  	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>5.2.19.RELEASE</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- JUnit을 확장한 스프링의 테스트 라이브러리 -->
+	<!-- <scope>의 값을 test로 사용할 경우, src/main/java 단에서는 사용이 불가능해진다. 만약 사용하고 싶다면 scope를 해제해야 한다.
+	(src/test/java단에서는 scope처리를 해도 쉽게 사용가능하다) -->
+
+
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.28</version>
+	</dependency>
   </dependencies>
 </project>
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- @Configuration을 사용하여 xml이 아닌 Java코드로 컨테이너를 설정할 수도 있다.
+	이는, 스프링 4.0부터 지향하는 방법이 된다. -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,5 +13,26 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-
+	<context:annotation-config />	<!-- 어노테이션으로 설정 했을 경우에 꼭 필요한 태그, 위의 네임스페이스 등록도 해야한다. -->
+ 	<context:component-scan base-package="webshopprj.service"></context:component-scan>
+ 	
+ 	<!-- 빈을 연결하는 방법으로는 property(setter), constructor-arg(constructor)으로 설정파일을 만들어 IoC 컨테이너를 생성하는 방법과, 
+ 	  @Autowired를 이용하여 클래스파일에서 IoC컨테이너에 직접 필요한 bean을 찾는 방법이 있다(무조건 IoC컨테이너에 빈으로서 존재해야 찾을 수 있다). -->
+ 	  
+<!--  	<bean id="ProdDao" class="webshopprj.service.ProdDao"></bean> -->
+ 	
+ 	
+ 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+    	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+    	<property name="url" value = "jdbc:mysql://localhost/WEBSHOPPRJ?userSSL=false"></property>
+    	<property name="username" value = "spring"></property>
+    	<property name="password" value = "spring1234"></property>
+    </bean>
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<constructor-arg>
+    		<ref bean="dataSource"/>
+    	</constructor-arg>
+    </bean>
+ 	
 </beans>
