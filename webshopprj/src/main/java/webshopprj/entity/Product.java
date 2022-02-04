@@ -13,6 +13,9 @@ public class Product {
 	private String discription; // 제품설명
 	private Date up_Date;	// 등록일자
 	
+	
+	public Product() {}
+	
 	public int getId() {
 		return id;
 	}

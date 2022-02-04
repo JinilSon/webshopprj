@@ -70,10 +70,12 @@ public class ProdDao implements ProdDaoInterf{
 	}
 
 	@Override
-	public Product get(String id) {
+	public Product get(Integer id) {
+		
 		return this.jdbcTemplate.queryForObject("select * from product where id=?",
 				new Object[] {id},	// 매개변수인 id를 매개인자로 전달
 				this.userMapper);	// 콜백저장변수인 userMapper에 저장
+	
 	}
 
 	@Override
@@ -85,7 +87,7 @@ public class ProdDao implements ProdDaoInterf{
 	@Override
 	public void deleteAll() {
 		try {
-			this.jdbcTemplate.update("ttruncate table product");
+			this.jdbcTemplate.update("truncate table product");
 		}catch(DataAccessException e) {
 			throw e;
 		}

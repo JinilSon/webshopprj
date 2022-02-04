@@ -7,7 +7,7 @@ import webshopprj.entity.Product;
 public interface ProdDaoInterf {
 		void add(Product prod);
 		void update(Product prod);
-		Product get(String id);
+		Product get(Integer id);
 		List<Product> getAll();
 		void deleteAll();
 		int getCount();

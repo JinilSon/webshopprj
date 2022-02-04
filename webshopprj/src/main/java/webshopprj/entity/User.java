@@ -1,14 +1,12 @@
 package webshopprj.entity;
 
-import java.util.Date;
-
 public class User {
 	
 	private String id;
 	private String pw;
 	private String name;
-	private Date birth_date;
-	private String phone_num;
+	private String birthdate;
+	private String phonenum;
 	private String email;
 	private String b_item_num;		// {구매한 품목의 id, 수량}
 	private int t_pay;				// total pay, 이번 달 총 결제금액
@@ -32,17 +30,17 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getBirth_date() {
-		return birth_date;
+	public String getBirthdate() {
+		return birthdate;
 	}
-	public void setBirth_date(Date birth_date) {
-		this.birth_date = birth_date;
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
-	public String getPhone_num() {
-		return phone_num;
+	public String getPhonenum() {
+		return phonenum;
 	}
-	public void setPhone_num(String phone_num) {
-		this.phone_num = phone_num;
+	public void setPhonenum(String phonenum) {
+		this.phonenum = phonenum;
 	}
 	public String getEmail() {
 		return email;
@@ -68,7 +66,5 @@ public class User {
 	public void setC_point(int c_point) {
 		this.c_point = c_point;
 	}
-	
-	
 
 }
