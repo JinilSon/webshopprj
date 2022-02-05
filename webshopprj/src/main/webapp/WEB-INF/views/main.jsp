@@ -36,7 +36,12 @@
 				</div>
 				<div class="content-right">
 					<div class="notice">
-						
+						<c:forEach var="prodList" items="${prodList}" varStatus="status">
+						<tr>
+							<td>${prodList.id}</td>
+							<td>${prodList.title}</td>
+						</tr>
+						</c:forEach>
 					</div>
 					<div class="hots">
 					</div>
