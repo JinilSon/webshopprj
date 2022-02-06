@@ -123,6 +123,23 @@ html, body, .root, .body{
 	justify-content : flex-start;	/* 플렉스 컨테이너의 처음부터 배치 */
 }
 
+.items{
+	width : 200px;
+	height : 250px;
+	text-align: center;
+	display : inline;
+}
+
+.item_img{
+	max-width : 200px;
+	max-height : 210px;
+	float : left;
+}
+img{
+	max-width : 200px;
+	max-height : 210px;
+}
+
 .notice, .hots, .recommend{
 	width : inherit;
 	height : 400px;

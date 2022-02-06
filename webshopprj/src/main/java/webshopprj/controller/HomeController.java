@@ -31,9 +31,8 @@ public class HomeController {
 		
 		List<Product> prodList = dao.getAll();
 		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main"); 					//ViewName에 파일명을 적는다.
-		mv.addObject("prodList", prodList);			// mv에 담을 객체와 이름을 적는다.
+		ModelAndView mv = new ModelAndView("root.main");	//ViewName에 파일명을 적는다.
+		mv.addObject("prodList", prodList);					// mv에 담을 객체와 이름을 적는다.
 
 		return mv;
 	}

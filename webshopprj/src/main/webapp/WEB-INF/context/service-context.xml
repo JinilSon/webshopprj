@@ -19,8 +19,6 @@
  	<!-- 빈을 연결하는 방법으로는 property(setter), constructor-arg(constructor)으로 설정파일을 만들어 IoC 컨테이너를 생성하는 방법과, 
  	  @Autowired를 이용하여 클래스파일에서 IoC컨테이너에 직접 필요한 bean을 찾는 방법이 있다(무조건 IoC컨테이너에 빈으로서 존재해야 찾을 수 있다). -->
  	  
-<!--  	<bean id="ProdDao" class="webshopprj.service.ProdDao"></bean> -->
- 	
  	
  	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
     	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
@@ -34,5 +32,7 @@
     		<ref bean="dataSource"/>
     	</constructor-arg>
     </bean>
+    <!-- jdbcTemplate 사용, db 접근 정보를 담은 dataSource 객체를 이용하여 DB접근을 쉽게 하는 템플릿라이브러리 -->
+    
  	
 </beans>

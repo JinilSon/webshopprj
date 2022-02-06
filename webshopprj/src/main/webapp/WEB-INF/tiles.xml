@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+<!-- 여기서 root는 8080을 의미, controller에서 보내는 수신지를 명명. (8080/main) -->
+  <definition name="root.*" template="/WEB-INF/views/tiles/layout.jsp">
+    <!-- <put-attribute name="title" value="공지사항" /> -->
+    <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+    <put-attribute name="content-left" value="/WEB-INF/views/tiles/content-left.jsp" />
+    <put-attribute name="content-right" value="/WEB-INF/views/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+    <!-- {1}는 첫번 째 와일드 카드를 의미한다.
+    	ex) 8080/def/fn 으로 접근하면 -> ({1} : def, {2} : fn) -->
+  </definition>
+
+<!-- 만약 위와 같이 WildCard 기능을 사용하지 않을 경우, 매 페이지마다 헤더, 타이틀 등 부분적인 담당들의 url을 매번 직접 기입해줘야 하는 불편함이 있다.. -->
+  
+</tiles-definitions>

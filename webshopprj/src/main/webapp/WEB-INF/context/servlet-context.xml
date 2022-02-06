@@ -13,15 +13,26 @@
 	<context:annotation-config />	<!-- 어노테이션으로 설정 했을 경우에 꼭 필요한 태그, 위의 네임스페이스 등록도 해야한다. -->
  	<context:component-scan base-package="webshopprj.controller"></context:component-scan>
     
+    <bean
+    	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass"
+    	 	value="org.springframework.web.servlet.view.tiles3.TilesView" />
+    	 <property name="order" value="1"/>
+	</bean>
+	<!-- tiles Resolver(tiles로 만들어진 뷰를) url과 연결하는 역할을 담당한다.  -->
+	<bean
+    	class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    	<property name="definitions" value="/WEB-INF/tiles.xml" />
+	</bean>
+	<!-- tilesConfigurer : tiles로 뷰페이지를 만드는 기능을 하며 property(속성)으로 해당 뷰페이지의 구조를 담고 있는 tiles.xml의 url을 연결시켜주어야 한다. -->
     
     <!-- 내부 경로 생성기로써, 프론트 컨트롤러가 direct한 경로에 세부 디폴트 경로를 추가하여, 내부적으로 url을 찾아 관련 파일을 보내주는 기능을 한다.
     	 즉, 외부의 웹브라우저 사용자의 입장에서는 내부의 세부적인 경로를 표출시키지 않음으로써 보안성을 높일 수 있고, web-inf와 같은 경로는 일반 접근이 불가하기에, 내부적인 접근을 이용해 파일을 가져올 수 있다.(보안성) -->
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="prefix" value="/WEB-INF/views/" />
     	<property name="suffix" value=".jsp" />
+    	<property name="order" value="2" />		<!-- tiles가 먼저 수행된 후, url리졸빙을 수행해야 하기 때문에 수행순서를 2번째로 선택 -->
     </bean>
-    
-    
     
     <!-- static 메서드 내에 존재할 정적 파일들은 /static/경로를 url에 적지 않아도 보이게 한다.(경로 처리) -->
     <mvc:resources location="/static/" mapping="/**"></mvc:resources>
