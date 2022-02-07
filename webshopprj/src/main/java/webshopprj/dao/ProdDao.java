@@ -1,4 +1,4 @@
-package webshopprj.service;
+package webshopprj.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

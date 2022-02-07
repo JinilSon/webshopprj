@@ -5,12 +5,10 @@
 	<div class="notice">
 		<c:forEach var="prodList" items="${prodList}">
 		<div class="items">
-			<div class="item_img">
-				<img alt="사진 &#13; 1" src="/img/img.jpg" />
-			</div>
+			<img class="items_img" alt="사진 &#13; 1" src="/img/img.jpg" />
 			<div class="item_text">
-				<td>${prodList.id}</td>
-				<td>${prodList.title}</td>
+				<h4>${prodList.id}</h4>
+				<h4>${prodList.title}</h4>
 			</div>
 			
 		</div>

@@ -14,6 +14,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<context:annotation-config />	<!-- 어노테이션으로 설정 했을 경우에 꼭 필요한 태그, 위의 네임스페이스 등록도 해야한다. -->
+ 	<context:component-scan base-package="webshopprj.dao"></context:component-scan>		<!-- 임시로 dao 접근을 허용하는 위치, 아래 service가 완료되면 없애야 됨 -->
  	<context:component-scan base-package="webshopprj.service"></context:component-scan>
  	
  	<!-- 빈을 연결하는 방법으로는 property(setter), constructor-arg(constructor)으로 설정파일을 만들어 IoC 컨테이너를 생성하는 방법과, 

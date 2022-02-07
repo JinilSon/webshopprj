@@ -14,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import webshopprj.dao.ProdDao;
 import webshopprj.entity.Product;
-import webshopprj.service.ProdDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)	//RunWith는 JUNIT이 내장된 runner가 아닌 사용자 지정의 runner와 동작할 수 있게 한다.(springframework와 연동)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/context/service-context.xml")
