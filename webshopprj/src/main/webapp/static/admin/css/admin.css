@@ -22,6 +22,10 @@ li{
 	margin : 10px 0px 10px 0px;
 }
 
+tr, td{
+	text-align : center;
+}
+
 input:focus {outline:none;}
 
 html, body, .root, .body{
@@ -98,78 +102,23 @@ html, body, .root, .body{
 }
 
 .content{
-	position : relative;
-	width : 1400px;
+	width : 1000px;
 	height : 3000px;
-	min-height : 1000px;
 	margin : 0 auto;
-	background : #ffffe8;
+	margin-top : 70px;
+	text-align : center;
 }
 
-.content-left{
-	position : absolute;
-	top : 20px;
-	left : 0;
-	width : 10%;
-	padding : 30px;
-	background: #b3b3ff;
-	z-index: 1;
-	
-	border-radius : 15px;
-	
-}
-.content-right{
-	width: 90%;
-	height: 100%;
-	float : right;
-	background: #c8ffe3;
-	
-	display : flex;
-	flex-wrap : wrap;
-	flex-direction : column;		/* 수직, 수평, 오른쪽 시작, 왼쪽 시작을 선택 */
-	align-items : center;			/* 수직 방향 정렬 방식을 설정 */
-	justify-content : flex-start;	/* 플렉스 컨테이너의 처음부터 배치 */
-}
-
-
-
-.notice, .hots, .recommend{
+.product_table, .user_table{
 	width : inherit;
-	height : 400px;
-	margin : 20px;
-}
-
-.notice{
-	background : #7dffbe;
-}
-
-.items{
-	width : 200px;
-	text-align: center;
-	display : inline;
-	margin : 10px;
-	float : left;
-	border : 3px solid #c0c0c0;
-	border-radius : 15px;
-}
-
-.items_img{
-	max-width : 200px;
-	max-height : 210px;
-
+	margin : 0 auto;
+	margin-bottom : 70px;
+	border : 2px solid;
+	border-radius : 10px;
 }
 
 
 
-
-
-.hots{
-	background : #7dffdf;
-}
-
-.recommend{
-	background : #7defff;
-}
 
 
 

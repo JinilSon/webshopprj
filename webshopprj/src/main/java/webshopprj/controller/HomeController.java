@@ -23,7 +23,7 @@ public class HomeController {
 	
 	@RequestMapping("main")
 	@ResponseBody
-	public ModelAndView main() {
+	public ModelAndView main() {			// 메인 홈페이지
 //		Model : map구조이다. key, value로 저장되며 
 //		model.addAttribute("변수명", 값)으로 저장한다.
 //		url을 리턴하지 않더라도 requstMapping으로 받은 url과 jsp의 이름이 같으면 자동으로 연결시켜준다.

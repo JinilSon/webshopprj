@@ -6,5 +6,10 @@
 			<h1><a>Webshopprj</a></h1>
 		</div>
 		<input class="header-left-search" type="text" value="" placeholder=" 검색" size="20" maxlength="20" />
+		<div class="user-buttons">
+			<a>마이페이지</a>
+			<a>장바구니</a>
+			<a></a>
+		</div>
 	</div>
 </div>
