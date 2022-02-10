@@ -12,6 +12,32 @@ public class User {
 	private int t_pay;				// total pay, 이번 달 총 결제금액
 	private int c_point;			// current point
 	
+	
+	
+	public User(String id, String pw, String name, String birthdate, String phonenum, String email) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.birthdate = birthdate;
+		this.phonenum = phonenum;
+		this.email = email;
+	}
+	// 업로드용 생성자
+	
+	public User(String id, String pw, String name, String birthdate, String phonenum, String email, String b_item_num,
+			int t_pay, int c_point) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.birthdate = birthdate;
+		this.phonenum = phonenum;
+		this.email = email;
+		this.b_item_num = b_item_num;
+		this.t_pay = t_pay;
+		this.c_point = c_point;
+	}
+	// 다운로드용 생성자
+	
 	public String getId() {
 		return id;
 	}

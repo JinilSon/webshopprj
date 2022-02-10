@@ -26,14 +26,8 @@ public class UserDao implements UserDaoInterf{
 			new RowMapper<User>() {
 				@Override
 				public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-					User user = new User();
-					user.setId(rs.getString("id"));
-					user.setPw(rs.getString("pw"));
-					user.setName(rs.getString("name"));
-					user.setBirthdate(rs.getString("birthdate"));
-					user.setPhonenum(rs.getString("phonenum"));
-					user.setEmail(rs.getString("email"));
-					user.setB_item_num(rs.getString("b_item_num"));
+					User user = new User(rs.getString("id"), rs.getString("pw"), rs.getString("name"), rs.getString("birthdate"),
+							rs.getString("phonenum"), rs.getString("email"), rs.getString("b_item_num"), rs.getInt("t_pay"), rs.getInt("c_point"));
 					
 					return user;
 				}

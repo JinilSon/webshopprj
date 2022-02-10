@@ -26,15 +26,8 @@ public class ProdDao implements ProdDaoInterf{
 			new RowMapper<Product>() {
 				@Override
 				public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-					Product prod = new Product();
-					prod.setId(rs.getInt("id"));
-					prod.setTitle(rs.getString("title"));
-					prod.setCategory(rs.getString("category"));
-					prod.setPrice(rs.getInt("price"));
-					prod.setDiscount(rs.getInt("discount"));
-					prod.setPicture(rs.getString("picture"));
-					prod.setDiscription(rs.getString("discription"));
-					prod.setUp_Date(rs.getDate("up_date"));
+					Product prod = new Product(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getInt("price"), rs.getInt("discount"),
+							rs.getString("picture"), rs.getString("discription"), rs.getDate("up_date"));
 					
 					return prod;
 				}

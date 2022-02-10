@@ -15,8 +15,18 @@
 			<td>제품등록일자</td>
 			<td>제품설명</td>
 		</tr>
-		<td>
-		</td>
+		<c:forEach var="prodList" items="${prodList}">
+		<tr>
+			<td>${prodList.id}</td>
+			<td>${prodList.title}</td>
+			<td>${prodList.category}</td>
+			<td>${prodList.price}</td>
+			<td>${prodList.discount}</td>
+			<td><img class="picture" src="${prodList.picture}" alt="${prodList.title}"></td>
+			<td>${prodList.discription}</td>
+			<td>${prodList.up_Date}</td>
+		</tr>
+		</c:forEach>
 	</table>
 	
 	<h3>사용자 DB 조회 테이블</h3>
@@ -31,7 +41,17 @@
 			<td>이번 달 총 결제금액</td>
 			<td>포인트</td>
 		</tr>
-		<td>
-		</td>
+		<c:forEach var="userList" items="${userList}">
+		<tr>
+			<td>${userList.id}</td>
+			<td>${userList.pw}</td>
+			<td>${userList.name}</td>
+			<td>${userList.birthdate}</td>
+			<td>${userList.phonenum}</td>
+			<td>${userList.b_item_num}</td>
+			<td>${userList.t_pay}</td>
+			<td>${userList.c_point}</td>
+		</tr>
+		</c:forEach>		
 	</table>
 </div>

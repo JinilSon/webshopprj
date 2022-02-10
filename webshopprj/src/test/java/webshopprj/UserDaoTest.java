@@ -35,15 +35,7 @@ public class UserDaoTest {
 	
 	@Before			// 테스트 케이스 시작 전
 	public void setUp() throws Exception {
-		user1 = new User();
-		user1.setId("fdsajlfd");
-		user1.setPw("dosjaofdf");
-		user1.setName("홍길동");
-		user1.setBirthdate("1999-11-29");
-		user1.setPhonenum("010-2433-453");
-		user1.setEmail("djklsa@naver.com");
-		user1.setB_item_num("1,2,3");
-		user2 = new User();
+		user1 = new User("aaaa", "aaaa", "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com");
 	}
 	
 	@Test			// 테스트 케이스

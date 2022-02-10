@@ -11,10 +11,29 @@ public class Product {
 	private int discount;	// 할인률
 	private String picture;	// 제품사진 url
 	private String discription; // 제품설명
-	private Date up_Date;	// 등록일자
+	private Date up_Date;	// 등록일자(자동생성)
 	
+	public Product(int id, String title, String category, int price, int discount, String picture, String discription, Date up_Date) {
+		this.id = id;
+		this.title = title;
+		this.category = category;
+		this.price = price;
+		this.discount = discount;
+		this.picture = picture;
+		this.discription = discription;
+		this.up_Date = up_Date;
+	}	
+	// 다운로드용 생성자
 	
-	public Product() {}
+	public Product(String title, String category, int price, int discount, String picture, String discription) {
+		this.title = title;
+		this.category = category;
+		this.price = price;
+		this.discount = discount;
+		this.picture = picture;
+		this.discription = discription;
+	}
+	// 업로드용 생성자
 	
 	public int getId() {
 		return id;
