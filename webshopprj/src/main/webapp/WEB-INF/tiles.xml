@@ -15,17 +15,13 @@
     	ex) 8080/def/fn 으로 접근하면 -> ({1} : def, {2} : fn) -->
   </definition>
   
-  <definition name="login" template="/WEB-INF/views/tiles/user/layout-login.jsp">
+  <definition name="*.*" template="/WEB-INF/views/tiles/{1}/layout-{2}.jsp">
+  	<put-attribute name="css" value="css/{2}.css" />
   	<put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
-  	<put-attribute name="content" value="/WEB-INF/views/tiles/user/login.jsp" />
+  	<put-attribute name="content" value="/WEB-INF/views/tiles/{1}/{2}.jsp" />
   	<put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />
   </definition>
   
-  <definition name="admin.management" template="/WEB-INF/views/tiles/admin/layout.jsp">
-  	<put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
-  	<put-attribute name="content" value="/WEB-INF/views/tiles/admin/manage.jsp" />
-  	<put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />
-  </definition>
 
 <!-- 만약 위와 같이 WildCard 기능을 사용하지 않을 경우, 매 페이지마다 헤더, 타이틀 등 부분적인 담당들의 url을 매번 직접 기입해줘야 하는 불편함이 있다.. -->
   

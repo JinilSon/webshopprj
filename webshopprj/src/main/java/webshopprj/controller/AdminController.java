@@ -13,19 +13,19 @@ import webshopprj.service.AdminService;
 
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/")
 public class AdminController {
 	
 	@Autowired
 	private AdminService adminService;			// 관리자 서비스(DAO 연결)
 	
-	@RequestMapping("management")
-	public ModelAndView management() {			// DB 관리 페이지
+	@RequestMapping("manage")
+	public ModelAndView manage() {			// DB 관리 페이지
 		
 		
 		List<Product> prodList = adminService.getAllProdDB();
 		List<User> userList = adminService.getAllUserDB();
-		ModelAndView mv = new ModelAndView("admin.management");
+		ModelAndView mv = new ModelAndView("admin.manage");
 		mv.addObject("prodList", prodList);
 		mv.addObject("userList", userList);
 		

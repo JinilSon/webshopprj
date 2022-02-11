@@ -41,9 +41,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping("login")				// 로그인 페이지
-	public void login() {
+	public String login() {
 		
-	
+		return "user.login";
 	}
 	
 }
