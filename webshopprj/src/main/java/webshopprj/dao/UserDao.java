@@ -38,10 +38,10 @@ public class UserDao implements UserDaoInterf{
 
 
 	@Override
-	public void add(User prod) {
+	public void add(User user) {
 		try {
 			jdbcTemplate.update("insert into user(id, pw, name, birthdate, phonenum, email, b_item_num) values(?, ?, ?, ?, ?, ?, ?)", 
-					prod.getId(), prod.getPw(), prod.getName(), prod.getBirthdate(), prod.getPhonenum(), prod.getEmail(), prod.getB_item_num());
+					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getB_item_num());
 		} catch(DuplicateKeyException e) {
 			throw e;	
 			// DuplicateKeyException : primary key 중복 시 발생하는 예외
@@ -49,11 +49,11 @@ public class UserDao implements UserDaoInterf{
 	}
 	
 	@Override
-	public void update(User prod) {
+	public void update(User user) {
 		try {
 			jdbcTemplate.update("update user set"
 					+ "id=?, pw=?, name=?, birthdate=?, phonenum=?, email=?, b_item_num=?", 
-					prod.getId(), prod.getPw(), prod.getName(), prod.getBirthdate(), prod.getPhonenum(), prod.getEmail(), prod.getB_item_num());
+					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getB_item_num());
 		} catch(DataAccessException e) {
 			throw e;	
 			// DataAccessException : 런타임예외의 한 종류로, 예외처리로 할 수 있는 것이 한정되어 있는 런타임 특성 상,

@@ -5,7 +5,7 @@
 <tiles-definitions>
 
 <!-- 여기서 root는 8080을 의미, controller에서 보내는 수신지를 명명. (8080/main) -->
-  <definition name="root.*" template="/WEB-INF/views/tiles/user/layout.jsp">
+  <definition name="root.*" template="/WEB-INF/views/tiles/user/layout-{1}.jsp">
     <!-- <put-attribute name="title" value="공지사항" /> -->
     <put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
     <put-attribute name="content-left" value="/WEB-INF/views/tiles/user/content-left.jsp" />
@@ -13,6 +13,12 @@
     <put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />
     <!-- {1}는 첫번 째 와일드 카드를 의미한다.
     	ex) 8080/def/fn 으로 접근하면 -> ({1} : def, {2} : fn) -->
+  </definition>
+  
+  <definition name="login" template="/WEB-INF/views/tiles/user/layout-login.jsp">
+  	<put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
+  	<put-attribute name="content" value="/WEB-INF/views/tiles/user/login.jsp" />
+  	<put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />
   </definition>
   
   <definition name="admin.management" template="/WEB-INF/views/tiles/admin/layout.jsp">

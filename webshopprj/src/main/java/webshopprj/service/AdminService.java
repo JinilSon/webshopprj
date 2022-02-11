@@ -19,6 +19,7 @@ public class AdminService {
 	@Autowired
 	private UserDao userDao;
 
+	
 	public List<Product> getAllProdDB() {
 		return prodDao.getAll();
 	}
@@ -26,5 +27,27 @@ public class AdminService {
 	public List<User> getAllUserDB(){
 		return userDao.getAll();
 	}
+	
+	public void addUser(User user) {
+		userDao.add(user);
+	}
+	
+	public void addProd(Product prod) {
+		prodDao.add(prod);
+	}
+	
+	public void deleteAllProdDB() {
+		prodDao.deleteAll();
+	}
+	
+	public void deleteAllUserDB() {
+		userDao.deleteAll();
+	}
+	
+	public void deleteAllDB() {
+		prodDao.deleteAll();
+		userDao.deleteAll();
+	}
+	// 여기까지는 순수 DAO 기능
 	
 }

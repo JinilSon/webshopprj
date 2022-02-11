@@ -1,0 +1,8 @@
+VO는 Value Object라는 말 그대로 값 객체라는 의미를 가지고 있다.
+VO의 핵심역할은 equals()와 hashcode()를 오버라이딩 하는 것이다.
+VO 내부에 선언된 속성의 모든 값들이 VO 객체마다 값이 같아야, 똑같은 객체라고 판별된다.
+
+여러 테이블에 대한 공통 속성을 모아서 만든 BaseVO클래스를 상속받아서
+비교로직(equals() 등)에 대한 역할 등 특정한 역할로 주로 사용되는 듯 하다.
+
+참조 : https://velog.io/@gillog/Entity-DTO-VO-%EB%B0%94%EB%A1%9C-%EC%95%8C%EA%B8%B0
