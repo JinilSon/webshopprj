@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import webshopprj.entity.Product;
+import webshopprj.service.TestService;
 import webshopprj.service.UserService;
 
 @Controller									// 현재 클래스가 컨트롤러 기능을 한다는 것을 암시(Component의 역할
@@ -20,6 +22,9 @@ public class HomeController {
 	
 	@Autowired
 	private UserService u_service;
+	
+	@Autowired
+	private TestService t_service;
 	
 	
 	//@PostMapping()
@@ -40,8 +45,10 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping("login")				// 로그인 페이지
+	@GetMapping("login")				// 로그인 페이지
 	public String login() {
+		
+		t_service.getTest();
 		
 		return "user.login";
 	}

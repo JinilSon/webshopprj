@@ -5,16 +5,16 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
-  	<org.springframework-version>5.2.19.RELEASE</org.springframework-version>
+  	<org.springframework-version>5.2.19.RELEASE</org.springframework-version>	<!-- 스프링 버전 -->
+  	<spring.security.version>5.1.13.RELEASE</spring.security.version>			<!-- 스프링 security 버전, 스프링 security 버전은 spring버전보다 항상 낮아야 한다.!! -->
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
-  	<!-- maven이 사용할 기본 자바 버전을 명명하는 역할, 간단히 source, target으로 넣어도 좋다. -->
   </properties>
   <dependencies>
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
-  		<version>5.2.19.RELEASE</version>
+  		<version>${org.springframework-version}</version>
   	</dependency>
   	<dependency>
 	    <groupId>org.apache.tomcat</groupId>
@@ -30,7 +30,7 @@
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-jdbc</artifactId>
-  		<version>5.2.19.RELEASE</version>
+  		<version>${org.springframework-version}</version>
   	</dependency>
   	
 	<dependency>
@@ -44,7 +44,7 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-test</artifactId>
-	    <version>5.2.19.RELEASE</version>
+	    <version>${org.springframework-version}</version>
 	    <scope>test</scope>
 	</dependency>
 	<!-- JUnit을 확장한 스프링의 테스트 라이브러리 -->
@@ -71,6 +71,26 @@
 		<groupId>org.apache.tiles</groupId>
 		<artifactId>tiles-jsp</artifactId>
 		<version>3.0.8</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-core</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>${spring.security.version}</version>
 	</dependency>
   </dependencies>
 </project>
