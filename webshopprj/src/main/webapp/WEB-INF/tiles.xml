@@ -16,7 +16,7 @@
   </definition>
   
   <definition name="*.*" template="/WEB-INF/views/tiles/{1}/layout-{2}.jsp">
-  	<put-attribute name="css" value="css/{2}.css" />
+  	<put-attribute name="css" value="/css/{1}.css" />
   	<put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
   	<put-attribute name="content" value="/WEB-INF/views/tiles/{1}/{2}.jsp" />
   	<put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />
