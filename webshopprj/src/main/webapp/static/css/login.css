@@ -167,7 +167,7 @@ html, body, .root, .body{
 	float : left;
 }
 
-.form{
+#form{
 	text-align : left;
 	padding : 30px 0px 0px 300px;
 }

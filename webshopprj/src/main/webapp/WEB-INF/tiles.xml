@@ -7,6 +7,7 @@
 <!-- 여기서 root는 8080을 의미, controller에서 보내는 수신지를 명명. (8080/main) -->
   <definition name="root.*" template="/WEB-INF/views/tiles/user/layout-{1}.jsp">
     <!-- <put-attribute name="title" value="공지사항" /> -->
+    <put-attribute name="css" value="/css/{1}.css" />
     <put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
     <put-attribute name="content-left" value="/WEB-INF/views/tiles/user/content-left.jsp" />
     <put-attribute name="content-right" value="/WEB-INF/views/tiles/user/{1}.jsp" />
@@ -16,7 +17,7 @@
   </definition>
   
   <definition name="*.*" template="/WEB-INF/views/tiles/{1}/layout-{2}.jsp">
-  	<put-attribute name="css" value="/css/{1}.css" />
+  	<put-attribute name="css" value="/css/{2}.css" />
   	<put-attribute name="header" value="/WEB-INF/views/tiles/common/header.jsp" />
   	<put-attribute name="content" value="/WEB-INF/views/tiles/{1}/{2}.jsp" />
   	<put-attribute name="footer" value="/WEB-INF/views/tiles/common/footer.jsp" />

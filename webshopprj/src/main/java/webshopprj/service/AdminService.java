@@ -9,6 +9,7 @@ import webshopprj.dao.ProdDao;
 import webshopprj.dao.UserDao;
 import webshopprj.entity.Product;
 import webshopprj.entity.User;
+import webshopprj.vo.UserVO;
 
 @Service
 public class AdminService {

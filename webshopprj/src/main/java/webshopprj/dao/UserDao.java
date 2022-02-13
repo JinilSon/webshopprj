@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import webshopprj.entity.User;
 import webshopprj.interf.UserDaoInterf;
+import webshopprj.vo.UserVO;
 
 @Service
 public class UserDao implements UserDaoInterf{
@@ -34,7 +35,8 @@ public class UserDao implements UserDaoInterf{
 			};
 	// 쿼리 결과를 배열로 가져오기 위한 콜백 메서드 
 	// 쿼리 결과 rowNum마다 카운팅하여, 아래의 콜백 메서드를 결과 개수만큼 실행하여 rowmapper에 저장한다.
-
+	// return 값은 도중에 변하는 일이 없기에 VO객체로 return
+	// entity 값은 도중에 변하는 일이 발생할 수 도 있음(처리 과정, 비즈니스 로직 등)
 
 
 	@Override

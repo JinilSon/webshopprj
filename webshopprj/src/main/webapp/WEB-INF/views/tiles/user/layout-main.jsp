@@ -10,7 +10,7 @@
 	<title>메인 페이지</title>
 	<script type="text/javascript" src="/customer/js/jquery-3.6.0.min.js"></script> 
 	<script type="text/javascript" src="/customer/js/main.js" defer></script> 
-	<link rel="stylesheet" type="text/css" href="/customer/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<tiles:getAsString name="css" />" />
 	
 </head>
 <body>

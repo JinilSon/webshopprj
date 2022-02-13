@@ -5,20 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import webshopprj.dao.ProdDao;
-import webshopprj.entity.Product;
+import webshopprj.dao.UserDao;
+import webshopprj.entity.User;
+import webshopprj.vo.UserVO;
 
 @Service
 public class UserService {
 
 	@Autowired
-	private ProdDao prodDao;
+	private UserDao userDao;
 	
 
-	public List<Product> getAllProdDB() {
-		return prodDao.getAll();
+	public List<User> getAllUserDB() {
+		return userDao.getAll();
 	}
-	// UserService에서는 사용자에게 보여주기 위한 권한까지만 접근하게 한다.
+	// 모든 사용자에 대한 정보를 return(admin 사용자가 사용하기 위함)
+	
+	public User getById(String userId) {
+		return userDao.get(userId);
+	}
+	// 검색된 사용자에 대한 정보를 return
+	
+	public UserVO getByIdVO(String userId) {
+		User user = getById(userId);
+		UserVO userVO = new UserVO(user.getId(), user.getPw());
+		
+		return userVO;
+		
+	}
 	
 	public void addProdDB() {
 		

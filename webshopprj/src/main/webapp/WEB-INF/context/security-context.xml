@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-<!-- 로그인 등 보안 관련 설정 -->
-  
+	<!-- 로그인 등 보안 관련 설정 -->
+	<context:component-scan base-package="webshopprj.security" />	<!-- context 파일끼리는 bean 공유를 하지 않는다. -->
+	<http auto-config="true" use-expressions="true">
+	<!-- autoconfig : 로그인페이지, HTTP인증, 로그아웃 기능들을 사용
+		use-expression : SpEL(런타임 시에 객체 그래프를 조회하고 조작하는 표현언어)을 사용 -->
 
-</beans>
+		<intercept-url pattern = "/login" access="permitAll" />
+		<!-- URL에 접근하기 위한 권한을 설정하여 준다.(IP 등도 설정가능하다, 우선순위는 위에서부터 아래로 내려간다.) -->
+		<intercept-url pattern="/main" access="permitAll" />
+		<intercept-url pattern="/**" access="permitAll" />
+		<!-- 정적 파일에 대한 권한도 모두 승인 -->
+		
+		<!-- <access-denied-handler ref="userDeniedHandler" /> -->
+		<!-- 접근 차단된 사용자들에 대한 조치를 담당하는 Handler class 연결 -->
+		
+		<form-login
+			login-page="/login"
+			login-processing-url="/j_spring_security_check"			
+			default-target-url="/main"		
+			always-use-default-target="true"
+			
+			/>
+			<!-- login-page : 로그인 page, 없을 경우 스프링이 자동으로 default 페이지를 제공
+			 	 default-target-url : 로그인 성공 시, 다이렉팅 될 페이지
+			 	 username-parameter, password-parameter : form 태그의 데이터를 지정한 파라미터로 바꾸어준다.(지정 하지 않아도 무관)
+				 authentication-failure-url : 로그인 실패 시 호출해줄 URL
+			 	 always-use-default-target : 성공 시, default target으로 유연히 넘기는 기능
+			 -->
+			
+		<logout
+			logout-url="/logout"
+			logout-success-url="/login?logout"
+			invalidate-session="true"
+			delete-cookies="true" 
+			/>
+			
+			<!-- logout-url : 로그아웃 처리를 위한 url
+				 logout-success-url : 로그아웃 성공 시, 다이렉트 될 url
+				 invalidate-session : 로그아웃 시, 세션을 초기화한다.
+				 delete-cookies : 로그아웃 시, 쿠키를 제거한다.-->
+		
+		<csrf />
+			<!-- csrf(Cross Site Request Forgery)는 웹 어플리케이션 취약점 중 하나로
+			 인터넷 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록)을 특정 웹사이트에 요청하게 만드는 공격이다. 
+			 해당 필터는 모든 요청에 대해서 랜덤으로 생성된 토큰을 클라이언트에 전달하고, 클라이언트는 매 요청 시마다 해당 토큰을 HTTP 파라미터 또는 헤더로 서버에 전달한다.
+			 요청 시 전달된 토큰 값과 서버에 저장된 토큰 값을 비교한 후 일치하지 않으면 요청이 실패한다.
+			 -->
+		
+		<!-- <remember-me 
+			data-source-ref="dataSource"
+			remember-me-parameter="remember-me"
+			token-validity-seconds="604800" 
+			/> -->
+		<!-- 자동로그인 관련 기능
+			remember-me-parameter : 토큰을 생성하기 위한 파라미터이다.(자동 로그인 체크박스의 name값을 넣어주면 된다.) 
+			token-validity-seconds : 토큰의 만료시간
+			-->
+			
+			
+	</http>
+	
+	<!-- <beans:bean id="userDeniedHandler" class="webshopprj.security.UserDeniedHandler"/> -->
+	
+	<beans:bean id="memeberService" class="webshopprj.service.MemberService" />
+	<!-- MemberService : UserDetailsService클래스를 상속받아 db에서 가져온 데이터를 security에 알맞는 형식의 데이터로 변경하여 security에게 전달하는 역할을 한다. -->
+	
+	<authentication-manager>
+		<authentication-provider user-service-ref="memeberService"></authentication-provider>
+	</authentication-manager>
+	<!-- 인증처리를 위한 최상위 태그이다.
+		user-service-ref : 사용자이름/비밀번호를 제공해줄 서비스를 등록한다. -->
+	
+ 	
+	  
+
+</beans:beans>
