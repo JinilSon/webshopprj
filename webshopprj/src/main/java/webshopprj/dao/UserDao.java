@@ -7,13 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import webshopprj.entity.User;
 import webshopprj.interf.UserDaoInterf;
-import webshopprj.vo.UserVO;
 
 @Service
 public class UserDao implements UserDaoInterf{
@@ -67,10 +67,15 @@ public class UserDao implements UserDaoInterf{
 	@Override
 	public User get(String id) {
 		
-		return this.jdbcTemplate.queryForObject("select * from user where id=?",
-				new Object[] {id},	// 매개변수인 id를 매개인자로 전달
-				this.userMapper);	// 콜백저장변수인 userMapper에 저장
-	
+		try {
+			return this.jdbcTemplate.queryForObject("select * from user where id=?",
+					new Object[] {id},	// 매개변수인 id를 매개인자로 전달
+					this.userMapper);	// 콜백저장변수인 userMapper에 저장
+		} catch(EmptyResultDataAccessException e) {
+			return null;
+		}
+		
+
 	}
 
 	@Override

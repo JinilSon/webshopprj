@@ -28,8 +28,11 @@ public class UserService {
 	
 	public UserVO getByIdVO(String userId) {
 		User user = getById(userId);
-		UserVO userVO = new UserVO(user.getId(), user.getPw());
 		
+		if(user == null)
+			return null;
+		
+		UserVO userVO = new UserVO(user.getId(), user.getPw());
 		return userVO;
 		
 	}

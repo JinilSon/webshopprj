@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,15 +21,17 @@ public class MemberService implements UserDetailsService{
 	private UserService u_Service;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
+	public UserDetails loadUserByUsername(String username) throws AuthenticationServiceException {
 		
-		System.out.println("MemberService 접근");
-		
+		//리턴 및 검증 전용 객체
 		UserVO userVO = u_Service.getByIdVO(username);
-		if(userVO == null)
-			throw new UserIdNotFoundException(username);
-		// 조회된 아이디가 없다 = 해당 아이디의 User가 없다
+		
+		if(userVO == null) {
+			System.out.println("userVO is null");
+			return null;
+		}
+			
+
 		
 		Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
 		// SimpleGrantedAuthority는 계정이 가지고 있는 권한 목록을 리턴하는 역할을 한다.
@@ -40,6 +43,8 @@ public class MemberService implements UserDetailsService{
 		
 		UserDetails user = new User(username, "{noop}" + userVO.getPw(), roles);
 		// 여기서 {noop} security 5이상의 특성으로 PasswordEncoder를 찾는 식별자이다.
+		
+		System.out.println("처리완료");
 		return user;
 	}
 

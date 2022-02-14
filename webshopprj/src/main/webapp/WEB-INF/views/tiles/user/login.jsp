@@ -9,9 +9,12 @@
 		<input class="login_input" name="password" placeholder="비밀번호" type="password"><br>
 		<button type="submit" id="login_btn">로그인</button><br>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
+		<label id="auto_login" class="login_sub_button_label"><input type="checkbox" name="remember-me" id="auto_login_checkbox" >자동로그인</label>
+		<div id="login_sub_button">
+			<a href="#" class="login_sub_button_label">아이디 찾기</a>
+			<a href="#" class="login_sub_button_label">비밀번호 찾기</a>
+			<a href="#" class="login_sub_button_label">회원가입</a>
+		</div>	
 	</form>
 	
-	<p>아이디 찾기</p>
-	<p>비밀번호 찾기</p>
-	<p>회원가입</p>	
 </div>

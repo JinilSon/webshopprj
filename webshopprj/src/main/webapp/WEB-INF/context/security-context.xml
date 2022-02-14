@@ -11,6 +11,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+		<!-- xmlns에서 beans가 빠지고 xmlns:beans로 등록되었기 때문에 <beans>와 같은 스키마가 적혀있지 않는 태그는 사용할 수 없다. -->
+
 
 	<!-- 로그인 등 보안 관련 설정 -->
 	<context:component-scan base-package="webshopprj.security" />	<!-- context 파일끼리는 bean 공유를 하지 않는다. -->
@@ -32,6 +34,7 @@
 			login-processing-url="/j_spring_security_check"			
 			default-target-url="/main"		
 			always-use-default-target="true"
+			authentication-failure-handler-ref="loginFailHandler"
 			
 			/>
 			<!-- login-page : 로그인 page, 없을 경우 스프링이 자동으로 default 페이지를 제공
@@ -60,12 +63,15 @@
 			 요청 시 전달된 토큰 값과 서버에 저장된 토큰 값을 비교한 후 일치하지 않으면 요청이 실패한다.
 			 -->
 		
-		<!-- <remember-me 
-			data-source-ref="dataSource"
+<!-- 		<remember-me 
+			data-source-ref="dataSource"			
 			remember-me-parameter="remember-me"
 			token-validity-seconds="604800" 
+			user-service-ref="memberService"
 			/> -->
 		<!-- 자동로그인 관련 기능
+			data-source-ref : 취약점이 존재하는 심플 해시 쿠키의 차선책으로 만든 DB를 이용한 방식을 사용하기 위한 dataSource이다.
+			key : 권한 객체의 검증을 위한 값(필수 설정은 아니고, default값이 존재)
 			remember-me-parameter : 토큰을 생성하기 위한 파라미터이다.(자동 로그인 체크박스의 name값을 넣어주면 된다.) 
 			token-validity-seconds : 토큰의 만료시간
 			-->
@@ -73,9 +79,8 @@
 			
 	</http>
 	
-	<!-- <beans:bean id="userDeniedHandler" class="webshopprj.security.UserDeniedHandler"/> -->
-	
 	<beans:bean id="memeberService" class="webshopprj.service.MemberService" />
+	<beans:bean id="loginFailHandler" class="webshopprj.service.LoginFailHandler" />
 	<!-- MemberService : UserDetailsService클래스를 상속받아 db에서 가져온 데이터를 security에 알맞는 형식의 데이터로 변경하여 security에게 전달하는 역할을 한다. -->
 	
 	<authentication-manager>

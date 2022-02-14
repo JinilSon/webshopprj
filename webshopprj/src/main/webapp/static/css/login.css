@@ -168,8 +168,10 @@ html, body, .root, .body{
 }
 
 #form{
+	width : 700px;
 	text-align : left;
 	padding : 30px 0px 0px 300px;
+	
 }
 
 
@@ -192,6 +194,19 @@ html, body, .root, .body{
 	/* 위 오른쪽 아래 왼쪽 */
 	margin : 10px auto;
 	width : 400px;
+}
+
+#auto_login{
+	float : left;
+}
+#auto_login_checkbox{
+	margin : 5px 5px;
+}
+#login_sub_button{
+	float : right;
+}
+.login_sub_button_label{
+	font-size: 0.8rem;
 }
 
 .footer{
