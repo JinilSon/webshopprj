@@ -18,13 +18,15 @@ public class LoginFailHandler implements AuthenticationFailureHandler{
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 
+		System.out.println("LoginFailHandler");
+		
 		if(exception instanceof AuthenticationServiceException) {
 			request.setAttribute("loginFailMsg", "존재하지 않는 사용자입니다.");
 		} else if(exception instanceof BadCredentialsException) {
 			request.setAttribute("loginFailMsg", "아이디 또는 비밀번호가 틀립니다.");
 		}
 		
-		
+		System.out.println(request.getAttribute("loginFailMsg"));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/login");
 		dispatcher.forward(request, response);
 		// 로그인 실패 사유를 가지고, 로그인 페이지로 forward

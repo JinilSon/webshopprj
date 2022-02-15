@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import webshopprj.dao.UserDao;
 import webshopprj.entity.User;
-import webshopprj.vo.UserVO;
+import webshopprj.vo.UserDetailVO;
 
 @Service
 public class UserService {
@@ -26,13 +26,13 @@ public class UserService {
 	}
 	// 검색된 사용자에 대한 정보를 return
 	
-	public UserVO getByIdVO(String userId) {
+	public UserDetailVO getByIdVO(String userId) {
 		User user = getById(userId);
 		
 		if(user == null)
 			return null;
 		
-		UserVO userVO = new UserVO(user.getId(), user.getPw());
+		UserDetailVO userVO = new UserDetailVO(user.getId(), user.getPw());
 		return userVO;
 		
 	}

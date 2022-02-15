@@ -3,7 +3,6 @@ package webshopprj.interf;
 import java.util.List;
 
 import webshopprj.entity.User;
-import webshopprj.vo.UserVO;
 
 public interface UserDaoInterf {
 

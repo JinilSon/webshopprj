@@ -20,27 +20,31 @@
 	<!-- autoconfig : 로그인페이지, HTTP인증, 로그아웃 기능들을 사용
 		use-expression : SpEL(런타임 시에 객체 그래프를 조회하고 조작하는 표현언어)을 사용 -->
 
-		<intercept-url pattern = "/login" access="permitAll" />
+		<intercept-url pattern = "/login" access="isAnonymous()" />
 		<!-- URL에 접근하기 위한 권한을 설정하여 준다.(IP 등도 설정가능하다, 우선순위는 위에서부터 아래로 내려간다.) -->
 		<intercept-url pattern="/main" access="permitAll" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<!-- 정적 파일에 대한 권한도 모두 승인 -->
+		<!-- isAnonymous() : 익명 사용자만 허용 -->
 		
 		<!-- <access-denied-handler ref="userDeniedHandler" /> -->
 		<!-- 접근 차단된 사용자들에 대한 조치를 담당하는 Handler class 연결 -->
 		
 		<form-login
 			login-page="/login"
-			login-processing-url="/j_spring_security_check"			
+			login-processing-url="/login"			
 			default-target-url="/main"		
 			always-use-default-target="true"
+			authentication-success-handler-ref="loginSuccessHandler"
 			authentication-failure-handler-ref="loginFailHandler"
 			
 			/>
-			<!-- login-page : 로그인 page, 없을 경우 스프링이 자동으로 default 페이지를 제공
-			 	 default-target-url : 로그인 성공 시, 다이렉팅 될 페이지
-			 	 username-parameter, password-parameter : form 태그의 데이터를 지정한 파라미터로 바꾸어준다.(지정 하지 않아도 무관)
-				 authentication-failure-url : 로그인 실패 시 호출해줄 URL
+			<!-- login-page : 로그인 페이지.jsp로, 설정하지 않을 경우 spring이 디폴트값을 제공한다.
+				 login-processing-url : spring-security가 적용되어, 사용자의 id,pw를 판단하게 될 url(단순하게 form에서 post로 보낼 url이다)
+			 	 default-target-url : 로그인 성공 시, direct 될 페이지
+			 	 username-parameter, password-parameter : form 태그의 id 및 pw의 name 속성값.(지정 하지 않아도 무관)
+				 authentication-failure-url : 로그인 실패 시 호출해줄 URL(보통 필요없음)
+				 authentication-failure-handler-ref : 로그인 실패 시, 예외 및 전달사항 처리를 목적으로 하는 bean id
 			 	 always-use-default-target : 성공 시, default target으로 유연히 넘기는 기능
 			 -->
 			
@@ -81,6 +85,7 @@
 	
 	<beans:bean id="memeberService" class="webshopprj.service.MemberService" />
 	<beans:bean id="loginFailHandler" class="webshopprj.service.LoginFailHandler" />
+	<beans:bean id="loginSuccessHandler" class="webshopprj.service.LoginSuccessHandler"/>
 	<!-- MemberService : UserDetailsService클래스를 상속받아 db에서 가져온 데이터를 security에 알맞는 형식의 데이터로 변경하여 security에게 전달하는 역할을 한다. -->
 	
 	<authentication-manager>

@@ -16,6 +16,10 @@
 	box-sizing: border-box;
 }
 
+a{
+	z-index : 2;
+}
+
 ul{
 	list-style: none;
 	margin : 10px 0px 10px 0px;
@@ -170,7 +174,7 @@ html, body, .root, .body{
 #form{
 	width : 700px;
 	text-align : left;
-	padding : 30px 0px 0px 300px;
+	padding : 30px 0px 0px 260px;
 	
 }
 
@@ -207,6 +211,14 @@ html, body, .root, .body{
 }
 .login_sub_button_label{
 	font-size: 0.8rem;
+}
+
+#loginFailMsgInput{
+	width : 400px;
+	border : none;
+	font-size : 0.8rem;
+	color : red;
+	
 }
 
 .footer{
