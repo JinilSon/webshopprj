@@ -14,9 +14,6 @@
 	box-sizing: border-box;
 }
 
-a{
-	z-index : 3;
-}
 
 ul{
 	list-style: none;

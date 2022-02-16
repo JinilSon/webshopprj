@@ -1,7 +1,6 @@
 package webshopprj.service;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -67,6 +66,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		
 		System.out.println("prevPage : " + prevPage);
 		System.out.println("uri : " + uri);
+		System.out.println("username : " + authentication.getName());
+		
+		request.getSession().setAttribute("userId", authentication.getName());
 		
 		response.sendRedirect(uri);
 		
@@ -74,5 +76,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		
 		
 	}
+	
 
 }
