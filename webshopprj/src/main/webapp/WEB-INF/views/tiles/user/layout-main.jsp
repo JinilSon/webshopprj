@@ -8,9 +8,11 @@
 	<link rel="shortcut icon" href="#">
 	<meta charset="UTF-8">
 	<title>메인 페이지</title>
-	<script type="text/javascript" src="/customer/js/jquery-3.6.0.min.js"></script> 
-	<script type="text/javascript" src="/customer/js/main.js" defer></script> 
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/header.js" defer></script>
+	<script type="text/javascript" src="/js/main.js" defer></script> 
 	<link rel="stylesheet" type="text/css" href="<tiles:getAsString name="css" />" />
+	<link rel="stylesheet" type="text/css" href="/css/header.css" />
 	
 </head>
 <body>

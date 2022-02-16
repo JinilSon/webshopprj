@@ -9,8 +9,9 @@
 	<!-- <link rel="shortcut icon" href="#"> -->		<!-- favicon에 # 연결 시, 해당 페이지를 두 번 로드하는 오류가 발생한다. -->
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/customer/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<tiles:getAsString name="css"/>" />
+	<link rel="stylesheet" type="text/css" href="/css/header.css" />
 </head>
 <body>
 	<div class="root">

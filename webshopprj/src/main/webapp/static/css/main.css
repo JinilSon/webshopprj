@@ -91,13 +91,7 @@ html, body, .root, .body{
 	font-weight : bold;
 }
 
-.user-buttons{
-	height : 60px;
-	margin : 40px 30px 0px 0px;
-	float : right;
-	z-index : 2;
-		
-}
+
 
 .content{
 	position : relative;

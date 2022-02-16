@@ -7,10 +7,10 @@
 		</div>
 		<input class="header-left-search" type="text" value="" placeholder=" 검색" size="20" maxlength="20" />
 		<div class="user-buttons">
-			<h5><a href="/login">로그인</a><h5>
+			<h5><a href="javascript:void(0)" id="login_btn" onclick="isLogin(this)">로그인</a><h5>
 			<h5><a>마이페이지</a><h5>
 			<h5><a>장바구니</a><h5>
 		</div>
-		<input type="hidden" name="userId" class="userId_input"  value="${userId}">
+		<input type="hidden" name="userId" class="userId_input" id="userId_input" value="${userId}">
 	</div>
 </div>
