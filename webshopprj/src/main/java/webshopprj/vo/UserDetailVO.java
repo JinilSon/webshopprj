@@ -21,14 +21,14 @@ public class UserDetailVO implements UserDetails{
 	
 	public UserDetailVO(String id, String pw) {
 		this.id = id;
-		this.pw = "{noop}" + pw;
+		this.pw = pw;
 	}
 	
 	public void setId(String id) {
 		this.id = id;
 	}
 	public void setPw(String pw) {
-		this.pw = "{noop}" + pw;
+		this.pw = pw;
 	}
 	// 여기서 {noop}은 security 5이상의 특성으로 PasswordEncoder를 찾는 식별자이다.
 	

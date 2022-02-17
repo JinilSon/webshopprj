@@ -6,16 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import webshopprj.entity.Product;
 import webshopprj.service.ProdService;
-import webshopprj.service.TestService;
-import webshopprj.service.UserService;
 
 @Controller									// 현재 클래스가 컨트롤러 기능을 한다는 것을 암시(Component의 역할
 @RequestMapping("/")						// 본래 dispatcher가 연결시켜주어야 할 빈들을 @ReqeustMapping 어노테이션과 xml에서 component-scan을 사용함으로써 코드를 단축시킬 수 있다.
@@ -26,6 +22,8 @@ public class HomeController {
 	
 	@Autowired
 	private ProdService p_service;
+	
+	
 	
 	
 	@RequestMapping("main")

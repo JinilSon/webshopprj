@@ -3,12 +3,9 @@ package webshopprj.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -29,6 +26,8 @@ public class AuthController {
 		
 		return "user.login";
 	}
+	
+	
 	
 	// POST 방식 매핑으로, security를 거쳐서 들어온 경우의 매핑을 담당(ex)로그인 실패로, 리다이렉트)
 	@RequestMapping(value="/login", method=RequestMethod.POST)

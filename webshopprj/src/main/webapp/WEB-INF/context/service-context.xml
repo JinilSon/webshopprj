@@ -35,5 +35,6 @@
     </bean>
     <!-- jdbcTemplate 사용, db 접근 정보를 담은 dataSource 객체를 이용하여 DB접근을 쉽게 하는 템플릿라이브러리 -->
     
+    <bean id="bCryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
  	
 </beans>

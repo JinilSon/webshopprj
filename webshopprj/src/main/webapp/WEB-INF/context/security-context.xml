@@ -83,13 +83,16 @@
 			
 	</http>
 	
-	<beans:bean id="memeberService" class="webshopprj.service.MemberService" />
+	<beans:bean id="userLoginDetailsService" class="webshopprj.service.UserLoginDetailsService" />
 	<beans:bean id="loginFailHandler" class="webshopprj.service.LoginFailHandler" />
 	<beans:bean id="loginSuccessHandler" class="webshopprj.service.LoginSuccessHandler"/>
+	<beans:bean id="loginAuthenticationProvider" class="webshopprj.service.LoginAuthenticationProvider" />
 	<!-- MemberService : UserDetailsService클래스를 상속받아 db에서 가져온 데이터를 security에 알맞는 형식의 데이터로 변경하여 security에게 전달하는 역할을 한다. -->
 	
+	
+	
 	<authentication-manager>
-		<authentication-provider user-service-ref="memeberService"></authentication-provider>
+		<authentication-provider ref="loginAuthenticationProvider"></authentication-provider>
 	</authentication-manager>
 	<!-- 인증처리를 위한 최상위 태그이다.
 		user-service-ref : 사용자이름/비밀번호를 제공해줄 서비스를 등록한다. -->

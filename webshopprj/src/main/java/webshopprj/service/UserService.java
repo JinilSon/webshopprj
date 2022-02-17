@@ -3,6 +3,7 @@ package webshopprj.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import webshopprj.dao.UserDao;
@@ -14,6 +15,9 @@ public class UserService {
 
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 
 	public List<User> getAllUserDB() {

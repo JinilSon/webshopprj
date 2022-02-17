@@ -3,6 +3,7 @@ package webshopprj;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -23,6 +25,8 @@ public class UserDaoTest {
 	
 	@Autowired
 	private UserDao dao;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 	private User user1;
 	private User user2;
@@ -35,7 +39,9 @@ public class UserDaoTest {
 	
 	@Before			// 테스트 케이스 시작 전
 	public void setUp() throws Exception {
-		user1 = new User("aaaa", "aaaa", "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com");
+		String pw = "aaaa";
+		String encodedPw = encoder.encode(pw);
+		user1 = new User("aaaa", encodedPw, "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com");
 	}
 	
 	@Test			// 테스트 케이스
@@ -48,8 +54,10 @@ public class UserDaoTest {
 			e.printStackTrace();
 		}
 		
-		assertThat(user1.getId(), is(user2.getId()));
-		
+		assertThat(user1.getPw(), is(user2.getPw()));
+		// 업로드한 pw와 업로드 된 pw와의 비교
+		assertTrue(encoder.matches("aaaa", user2.getPw()));
+		// 업로드한 pw와 업로드 된 pw와의 비교2(version.encode);
 	}
 	
 

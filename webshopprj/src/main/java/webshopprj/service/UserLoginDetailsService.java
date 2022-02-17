@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import webshopprj.vo.UserDetailVO;
 
 @Service
-public class MemberService implements UserDetailsService{
+public class UserLoginDetailsService implements UserDetailsService{
 	@Autowired
 	private UserService u_Service;
 	
@@ -27,11 +28,10 @@ public class MemberService implements UserDetailsService{
 		}
 		
 		List<String> tmpAuth = Arrays.asList("USER");
-		
 		userVO.setAuth(tmpAuth);
-			
+		
 
-		System.out.println("贸府肯丰");
+		System.out.println("MemberService 贸府肯丰");
 		return userVO;
 	}
 
