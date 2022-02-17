@@ -1,4 +1,4 @@
-package webshopprj.service;
+package webshopprj.service.login;
 
 import java.io.IOException;
 
@@ -14,8 +14,10 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Service;
 
 // LoginFailHandler는 AuthenticationFailureHandler를 상속받아 실패 사유에 대한 자세한 설명을 넘기는 역할을 한다.
+@Service
 public class LoginFailHandler implements AuthenticationFailureHandler{
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,

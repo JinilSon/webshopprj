@@ -1,4 +1,4 @@
-package webshopprj.service;
+package webshopprj.service.login;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import webshopprj.vo.UserDetailVO;
 
+@Service
 public class LoginAuthenticationProvider implements AuthenticationProvider {
 	
 	@Autowired

@@ -16,15 +16,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import webshopprj.dao.UserDao;
 import webshopprj.entity.User;
+import webshopprj.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)	//RunWith는 JUNIT이 내장된 runner가 아닌 사용자 지정의 runner와 동작할 수 있게 한다.(springframework와 연동)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/context/service-context.xml")
 public class UserDaoTest {
 	
 	@Autowired
-	private UserDao dao;
+	private UserService userService;
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
@@ -41,15 +41,15 @@ public class UserDaoTest {
 	public void setUp() throws Exception {
 		String pw = "aaaa";
 		String encodedPw = encoder.encode(pw);
-		user1 = new User("aaaa", encodedPw, "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com");
+		user1 = new User("aaaa", encodedPw, "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com", "USER");
 	}
 	
 	@Test			// 테스트 케이스
 	public void test() {
-		dao.deleteAll();
-		dao.add(user1);
+		userService.deleteAll();
+		userService.addUser(user1);
 		try {
-			user2 = dao.get(user1.getId());
+			user2 = userService.getUserById(user1.getId());
 		}catch (NullPointerException e) {
 			e.printStackTrace();
 		}

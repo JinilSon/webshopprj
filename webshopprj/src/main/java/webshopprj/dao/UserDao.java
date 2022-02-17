@@ -28,7 +28,7 @@ public class UserDao implements UserDaoInterf{
 				@Override
 				public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 					User user = new User(rs.getString("id"), rs.getString("pw"), rs.getString("name"), rs.getString("birthdate"),
-							rs.getString("phonenum"), rs.getString("email"), rs.getString("b_item_num"), rs.getInt("t_pay"), rs.getInt("c_point"));
+							rs.getString("phonenum"), rs.getString("email"), rs.getString("authList"), rs.getString("b_item_num"), rs.getInt("t_pay"), rs.getInt("c_point"));
 					
 					return user;
 				}
@@ -42,8 +42,8 @@ public class UserDao implements UserDaoInterf{
 	@Override
 	public void add(User user) {
 		try {
-			jdbcTemplate.update("insert into user(id, pw, name, birthdate, phonenum, email, b_item_num) values(?, ?, ?, ?, ?, ?, ?)", 
-					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getB_item_num());
+			jdbcTemplate.update("insert into user(id, pw, name, birthdate, phonenum, email, authlist, b_item_num) values(?, ?, ?, ?, ?, ?, ?, ?)", 
+					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getAuthList(), user.getB_item_num());
 		} catch(DuplicateKeyException e) {
 			throw e;	
 			// DuplicateKeyException : primary key 중복 시 발생하는 예외
@@ -54,8 +54,8 @@ public class UserDao implements UserDaoInterf{
 	public void update(User user) {
 		try {
 			jdbcTemplate.update("update user set"
-					+ "id=?, pw=?, name=?, birthdate=?, phonenum=?, email=?, b_item_num=?", 
-					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getB_item_num());
+					+ "id=?, pw=?, name=?, birthdate=?, phonenum=?, email=?, authlist = ?, b_item_num=?", 
+					user.getId(), user.getPw(), user.getName(), user.getBirthdate(), user.getPhonenum(), user.getEmail(), user.getAuthList(), user.getB_item_num());
 		} catch(DataAccessException e) {
 			throw e;	
 			// DataAccessException : 런타임예외의 한 종류로, 예외처리로 할 수 있는 것이 한정되어 있는 런타임 특성 상,

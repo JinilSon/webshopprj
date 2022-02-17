@@ -8,23 +8,25 @@ public class User {
 	private String birthdate;
 	private String phonenum;
 	private String email;
+	private String authList;
 	private String b_item_num;		// {구매한 품목의 id, 수량}
 	private int t_pay;				// total pay, 이번 달 총 결제금액
 	private int c_point;			// current point
 	
 	
 	
-	public User(String id, String pw, String name, String birthdate, String phonenum, String email) {
+	public User(String id, String pw, String name, String birthdate, String phonenum, String email, String authList) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.birthdate = birthdate;
 		this.phonenum = phonenum;
 		this.email = email;
+		this.authList = authList;
 	}
 	// 업로드용 생성자
 	
-	public User(String id, String pw, String name, String birthdate, String phonenum, String email, String b_item_num,
+	public User(String id, String pw, String name, String birthdate, String phonenum, String email, String authList, String b_item_num,
 			int t_pay, int c_point) {
 		this.id = id;
 		this.pw = pw;
@@ -35,6 +37,7 @@ public class User {
 		this.b_item_num = b_item_num;
 		this.t_pay = t_pay;
 		this.c_point = c_point;
+		this.authList = authList;
 	}
 	// 다운로드용 생성자
 	
@@ -73,6 +76,12 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getAuthList() {
+		return authList;
+	}
+	public void setAuthList(String authList) {
+		this.authList = authList;
 	}
 	public String getB_item_num() {
 		return b_item_num;

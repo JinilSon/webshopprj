@@ -1,4 +1,4 @@
-package webshopprj.service;
+package webshopprj.service.login;
 
 import java.io.IOException;
 
@@ -11,7 +11,9 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 	
 	@Override
