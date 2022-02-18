@@ -4,6 +4,7 @@ package webshopprj.service.login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.authentication.DisabledException;
@@ -27,10 +28,9 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 	private BCryptPasswordEncoder encoder;
 	
 	
-	
-	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
 		// 사용자가 입력한 정보를 authentication 객체에서 로드
 		String userId = authentication.getName();
 		String userPw = (String) authentication.getCredentials();
@@ -38,12 +38,12 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 		// DB에서 가져온 VO 객체
 		UserDetailVO vo = (UserDetailVO) service.loadUserByUsername(userId);
 		
-		if(service == null || !userId.equals(vo.getUsername())
-				|| !encoder.matches(userPw, vo.getPassword())){
+		// 빈 초기화가 되지 않거나, vo에 조회된 값(DB)이 없으면 AuthenticationServiceException
+		// ID나 PW가 알맞지 않으면, BadCredentialsException
+		if(service == null || vo == null) {
+			throw new AuthenticationServiceException(userId);
+		} else if(!userId.equals(vo.getUsername()) || !encoder.matches(userPw, vo.getPassword())){
 			throw new BadCredentialsException(userId);
-			
-		
-		
 		} else if(!vo.isAccountNonLocked()) {
 			throw new LockedException(userId);
 		} else if(!vo.isEnabled()) {

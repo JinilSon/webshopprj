@@ -23,6 +23,7 @@ public class UserLoginDetailsService implements UserDetailsService{
 		UserDetailVO userVO = userService.getUserDetailVOById(username);
 		
 		if(userVO == null) {	// 객체가 null(즉, id에 해당하는 사용자가 DB에 등록되어 있지 않다면)이면, null을 리턴
+			System.out.println("UserLoginDetailsService가 null 객체를 리턴");
 			return null;
 		}
 		
