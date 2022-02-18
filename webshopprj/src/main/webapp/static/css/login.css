@@ -16,6 +16,7 @@
 	box-sizing: border-box;
 }
 
+
 a{
 	z-index : 2;
 }
@@ -32,9 +33,6 @@ h4, h1{
 	display : inline;
 }
 
-form{
-	margin-top : 100px;
-}
 
 tr, td{
 	text-align : center;
@@ -150,11 +148,8 @@ html, body, .root, .body{
 }
 
 
-.user-buttons{
-	height : 60px;
-	margin : 40px 30px 0px 0px;
-	float : right;
-		
+#form{
+	margin-top : 100px;
 }
 
 .content{

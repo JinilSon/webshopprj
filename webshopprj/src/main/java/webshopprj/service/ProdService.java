@@ -15,16 +15,24 @@ public class ProdService {
 	private ProdDao prodDao;
 	
 
-	public List<Product> getAllProdDB() {
+	public List<Product> getALLProduct() {
 		return prodDao.getAll();
 	}
-	// UserService에서는 사용자에게 보여주기 위한 권한까지만 접근하게 한다.
+	// 모든 제품 객체 조회
 	
-	public Product getById(Integer prodId) {
+	public Product getProductById(Integer prodId) {
 		return prodDao.get(prodId);
 	}
+	// id 검색에 따른 제품 객체 조회
 	
-	public void addProdDB() {
-		
+	public void addProduct(Product prod) {
+		prodDao.add(prod);
 	}
+	// DB에 제품 객체 입력
+	
+	public void deleteAll() {
+		prodDao.deleteAll();
+	}
+	// DB 초기화
+	
 }

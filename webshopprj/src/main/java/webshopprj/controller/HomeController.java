@@ -21,10 +21,7 @@ public class HomeController {
 //	private ProdDao dao;					// Service 계층을 거쳐서 사용해야 한다.
 	
 	@Autowired
-	private ProdService p_service;
-	
-	
-	
+	private ProdService prodService;
 	
 	@RequestMapping("main")
 	@ResponseBody
@@ -34,16 +31,14 @@ public class HomeController {
 //		url을 리턴하지 않더라도 requstMapping으로 받은 url과 jsp의 이름이 같으면 자동으로 연결시켜준다.
 //		하지만, 찾아서 보여주는 구조이기에 return을 하는 것은 아니므로 model에 값을 담아 전달할 수는 없다.
 		
-		List<Product> prodList = p_service.getAllProdDB();
+		List<Product> prodList = prodService.getALLProduct();
 		String userId = (String) request.getSession().getAttribute("userId");
 		ModelAndView mv = new ModelAndView("root.main");	// ModelAndView의 하나의 매개변수를 가진 생성자는 생성과 동시에 ViewName을 설정한다.
 		mv.addObject("prodList", prodList);					// mv에 담을 객체와 이름을 적는다.
 		mv.addObject("userId", userId);
+		
+		System.out.println("Main, 세션에 연결된 유저ID : " + userId);
 
-		System.out.println("userId main : " + userId);
 		return mv;
 	}
-	
-	
-	
 }

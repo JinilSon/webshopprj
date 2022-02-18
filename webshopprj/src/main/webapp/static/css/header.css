@@ -1,12 +1,22 @@
-.user-buttons{
+.submit_form{
+	margin : 0px;
+}
+
+
+.user-button-div{
 	height : 30px;
 	margin : 50px 70px 0px 0px;
 	float : right;
 	z-index : 2;
+
 		
 }
 
-.user-buttons h5{
+.user-buttons{
+	width : auto;
+	height : auto;
+	margin-top : 0px;
 	display : inline;
 }
+
 

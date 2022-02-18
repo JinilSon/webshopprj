@@ -46,6 +46,7 @@ html, body, .root, .body{
 }
 
 .header{
+	display : block;
 	height : 100px;
 	position : sticky;
 	min-width : 1400px;
@@ -110,7 +111,6 @@ html, body, .root, .body{
 	padding : 30px;
 	background: #b3b3ff;
 	z-index: 1;
-	
 	border-radius : 15px;
 	
 }

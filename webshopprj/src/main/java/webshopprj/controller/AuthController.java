@@ -45,4 +45,9 @@ public class AuthController {
 		
 	}
 	
+	@RequestMapping(value="/logout", method=RequestMethod.POST)
+	public void logout() {
+		System.out.println("·Î±×¾Æ¿ôµÊ");
+	}
+	
 }

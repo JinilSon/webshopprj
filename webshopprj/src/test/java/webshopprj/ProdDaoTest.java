@@ -1,7 +1,7 @@
 package webshopprj;
 
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.After;
@@ -14,15 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import webshopprj.dao.ProdDao;
 import webshopprj.entity.Product;
+import webshopprj.service.ProdService;
 
 @RunWith(SpringJUnit4ClassRunner.class)	//RunWith는 JUNIT이 내장된 runner가 아닌 사용자 지정의 runner와 동작할 수 있게 한다.(springframework와 연동)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/context/service-context.xml")
 public class ProdDaoTest {
 	
 	@Autowired
-	private ProdDao dao;
+	private ProdService prodService;
 	
 	private Product prod1;
 	private Product prod2;
@@ -42,11 +42,11 @@ public class ProdDaoTest {
 	
 	@Test			// 테스트 케이스
 	public void test() {
-		dao.deleteAll();
-		dao.add(prod1);
-		dao.add(prod2);
+		prodService.deleteAll();
+		prodService.addProduct(prod1);
+		prodService.addProduct(prod2);
 		try {
-			get_prod1 = dao.get(1);
+			get_prod1 = prodService.getProductById(1);
 		}catch (NullPointerException e) {
 			e.printStackTrace();
 		}

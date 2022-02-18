@@ -1,9 +1,3 @@
-window.onload = function(){
- 	var userId = $(".userId_input").val();
-  
-	 if(userId != ""){
-	 	$("#login_btn").text("로그아웃");}
-};
 /* 로그인 후의 로그인 버튼 변경 */
 
 /* onload와 document.ready의 차이점
@@ -21,7 +15,22 @@ window.onload = function(){
 function isLogin(ths){
  	if(ths.text == "로그인")
 		location.replace("/login");
- 	else
-		location.replace("/logout");
+
 };
 /* 로그인 후의 href 이동 제어 */
+
+function take_action(ths){
+	const submit_form = $(".submit_form");
+	if(ths.text == "로그인"){
+		submit_form.attr("action", "/login");
+		submit_form.attr("method", "get");
+		submit_form.submit();
+	} else {
+		submit_form.attr("action", "/logout");
+		submit_form.attr("method", "post");
+		submit_form.submit();
+	}
+	
+}
+/*a태그로 로그아웃 submit*/
+
