@@ -1,156 +1,11 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
  */
-@font-face{
-	font-family : "Sunflower";
-	src : 
-	local('Malgun Gothic'),
-	url('/fonts/Sunflower-Light.woff2') format("woff2");
-}
-
-
-
-*{
-	margin : 0px;
-	padding : 0px;
-	font-family: 'Sunflower';
-	box-sizing: border-box;
-}
-
-
-a{
-	z-index : 2;
-}
-
-ul{
-	list-style: none;
-	margin : 10px 0px 10px 0px;
-}
-li{
-	margin : 10px 0px 10px 0px;
-}
 
 h4, h1{
 	display : inline;
 }
 
 
-tr, td{
-	text-align : center;
-}
-
-p{ display : inline;}
-
-:root {
-  --button-color: #ffffff;
-  --button-bg-color: #76748b;
-  --button-hover-bg-color: #5c5b6f;
-}
-
-button{
-	-webkit-appearance : none;
-	-moz-appearance : none;
-	appearance : none;
-	margin : 0;
-	padding : 0.5rem 1rem;
-	
-	color : var(--button-color);
-	background : var(--button-bg-color);
-	font-family : 'Sunflower';
-	font-size : 1rem;
-	font-weight : 400;
-	text-align : center;
-	border : none;
-	border-radius : 4px;
-	box-shadow :  0 4px 4px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	cursor : pointer;
-	transition : 0.5s;
-}
-button#login_btn{
-	--button-bg-color: #76748b;
-	--button-hover-bg-color: #5c5b6f;
-}
-
-button:active, button:hover, button:focus{
-	background : var(--button-hover-bg-color);
-	outline: 0;
-}
-button:disabled{
-	opacity: 0.5;
-}
-
-
-input:focus {outline:none;}
-
-html, body, .root, .body{
-	width: 100%;
-	height: 100%;
-}
-
-
-.body{
-	min-width : 1400px;
-	min-height : 100%;
-	text-align : center;
-	overflow-x : hidden;
-	overflow-y : scroll;
-	display : inline-block;
-	background: white;
-}
-
-.header, .footer{
-	display : block;
-}
-
-.header{
-	height : 100px;
-	position : sticky;
-	min-width : 1400px;
-	top : 0 ;
-	left : 0;
-	right : 0;
-	background-color : white;
-	box-shadow: 0px 1px 10px -4px;
-	z-index: 2;
-}
-
-.header-content{
-	width: 1400px; 
-	height : inherit;
-	text-align : left;
-	position : absolute;
-	transform : translateX(-50%);
-	/* absolute와 transform의 조합은 부모 객체가 inline-block이 아닌경우에 가운데 정렬을 만들기 위함 
-	 transform을 하는 이유는 기준점이 left 속성이 div속성의 좌표 0,0 기준으로 설정되기 때문이다.*/
-	left : 50%;
-	display: inline-block;
-}
-
-.header-left{
-	width : auto;
-	height : 80px;
-	float : left;
-	margin : 10px 0px 0px 50px;
-	padding : 0px 10px 0px 10px;
-	text-align : center;
-	line-height : 70px;
-	border : 6px solid #73d9ff;
-	border-radius : 15px;
-}
-
-.header-left-search{
-	width : 600px;
-	height : 60px;
-	margin : 20px 0px 0px 100px;
-	border : 0px;
-	border-bottom : 4px solid;
-	font-size: 30px;
-	font-weight : bold;
-}
-
-
-#form{
-	margin-top : 100px;
-}
 
 .content{
 	width : 1000px;
@@ -168,6 +23,7 @@ html, body, .root, .body{
 
 #form{
 	width : 700px;
+	margin-top : 100px;
 	text-align : left;
 	padding : 30px 0px 0px 260px;
 	

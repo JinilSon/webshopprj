@@ -1,0 +1,95 @@
+@font-face{
+	font-family : "Sunflower";
+	src : 
+	local('Malgun Gothic'),
+	url('/fonts/Sunflower-Light.woff2') format("woff2");
+}
+
+*{
+	margin : 0px;
+	padding : 0px;
+	font-family: 'Sunflower';
+	box-sizing: border-box;
+}
+
+a{
+	color : black;
+	text-decoration : none;
+}
+
+p{ 
+	display : inline;
+}
+
+tr, td{
+	text-align : center;
+}
+
+ul{
+	list-style: none;
+	margin : 10px 0px 10px 0px;
+}
+
+li{
+	margin : 10px 0px 10px 0px;
+}
+
+input:focus {outline:none;}
+
+:root {
+  --button-color: #ffffff;
+  --button-bg-color: #76748b;
+  --button-hover-bg-color: #5c5b6f;
+}
+
+button{
+	-webkit-appearance : none;
+	-moz-appearance : none;
+	appearance : none;
+	margin : 0;
+	padding : 0.5rem 1rem;
+	
+	color : var(--button-color);
+	background : var(--button-bg-color);
+	font-family : 'Sunflower';
+	font-size : 1rem;
+	font-weight : 400;
+	text-align : center;
+	border : none;
+	border-radius : 4px;
+	box-shadow :  0 4px 4px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	cursor : pointer;
+	transition : 0.5s;
+}
+button#login_btn{
+	--button-bg-color: #76748b;
+	--button-hover-bg-color: #5c5b6f;
+}
+
+button:active, button:hover, button:focus{
+	background : var(--button-hover-bg-color);
+	outline: 0;
+}
+button:disabled{
+	opacity: 0.5;
+}
+
+html, body, .root, .body{
+	width: 100%;
+	height: 100%;
+}
+
+.body{
+	min-width : 1400px;
+	min-height : 100%;
+	text-align : center;
+	overflow-x : hidden;
+	overflow-y : scroll;
+	display : inline-block;
+	background: white;
+}
+
+.footer{
+	display : block;
+}
+
