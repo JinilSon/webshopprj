@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="content">
 
 	<h3>제품 DB 조회 테이블</h3>
@@ -54,4 +55,50 @@
 		</tr>
 		</c:forEach>		
 	</table>
+	
+	<h3>제품 등록</h3>
+	<form action="/manage/add" id="form" method="post" enctype="multipart/form-data" accept-charset="UTF-8" onsubmit="return submit_prod()">
+		<table class="add_product_table">
+			<tr>
+				<td>제품명</td>
+				<td><input type="text" id="p_title_input" name="title"></td>
+			</tr>
+			<tr>
+				<td>가격</td>
+				<td><input type="number" id="p_price_input" name="price"></td>
+			</tr>
+			<tr>
+				<td>제품설명</td>
+				<td><textarea id="p_description_input" cols="40" rows="10" name="description"></textarea></td>
+			</tr>
+			<tr>
+				<td>이미지</td>
+				<td><input type="file" name="img" accept="image/gif, image/jpeg, image/png" class="p_img_input"></td>
+			</tr>
+			<tr>
+				<td>카테고리</td>
+				<td><input type="text" id="p_category_input" name="category" onkeydown="add_category(event)"></td>
+			</tr>
+			<tr>
+				<td>사이즈</td>
+				<td><input type="text" id="p_size_input" name="size"></td>
+			</tr>
+			<tr>
+				<td>색상</td>
+				<td><input type="text" id="p_color_input" name="color"></td>
+			</tr>
+			
+			
+			<tr id="add_indivisuals_line">
+				<td>
+					<button type="button" onclick="add_indivisuals_html()">추가</button>
+				</td>
+			</tr>
+			<tr>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<td colspan="2"><button type="submit">제출</button>
+			</tr>
+					
+		</table>
+	</form>
 </div>

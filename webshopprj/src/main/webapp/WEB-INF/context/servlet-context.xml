@@ -26,6 +26,11 @@
 	</bean>
 	<!-- tilesConfigurer : tiles로 뷰페이지를 만드는 기능을 하며 property(속성)으로 해당 뷰페이지의 구조를 담고 있는 tiles.xml의 url을 연결시켜주어야 한다. -->
     
+    <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="defaultEncoding" value="utf-8" />
+    	<property name="maxUploadSize" value="209715200" />
+    </bean>
+    
     <!-- 내부 경로 생성기로써, 프론트 컨트롤러가 direct한 경로에 세부 디폴트 경로를 추가하여, 내부적으로 url을 찾아 관련 파일을 보내주는 기능을 한다.
     	 즉, 외부의 웹브라우저 사용자의 입장에서는 내부의 세부적인 경로를 표출시키지 않음으로써 보안성을 높일 수 있고, web-inf와 같은 경로는 일반 접근이 불가하기에, 내부적인 접근을 이용해 파일을 가져올 수 있다.(보안성) -->
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">

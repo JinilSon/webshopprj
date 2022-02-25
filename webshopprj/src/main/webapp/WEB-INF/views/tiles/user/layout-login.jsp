@@ -10,6 +10,7 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
 	<link rel="stylesheet" type="text/css" href="<tiles:getAsString name="css"/>" />
 	<link rel="stylesheet" type="text/css" href="/css/common.css" />
 	<link rel="stylesheet" type="text/css" href="/css/header.css" />

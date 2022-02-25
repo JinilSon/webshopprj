@@ -1,12 +1,28 @@
 .content{
-	width : 1000px;
+	width : 1200px;
 	height : 3000px;
 	margin : 0 auto;
 	margin-top : 70px;
 	text-align : center;
 }
 
-.product_table, .user_table{
+form{
+	width : inherit;
+}
+
+tr input{
+	width : 100%;
+}
+td{
+	margin : 20px 0px;
+}
+
+input:not(.p_img_input, .header-left-search) {
+	border : 1px solid;
+	border-radius : 3px;
+}
+
+.product_table, .user_table, .add_product_table{
 	width : inherit;
 	margin : 0 auto;
 	margin-bottom : 70px;
@@ -17,6 +33,12 @@
 .picture{
 	width : 100px;
 	height : 150px;
+}
+
+textarea{
+	width : 100%;
+	border : 1px solid;
+	resize : none;
 }
 
 .footer{
