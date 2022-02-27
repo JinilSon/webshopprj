@@ -10,24 +10,57 @@ form{
 	width : inherit;
 }
 
-tr input{
-	width : 100%;
-}
 td{
 	margin : 20px 0px;
+}
+
+h4, h5{
+	display : inline;
+}
+#p_description_h{
+	vertical-align: top;
 }
 
 input:not(.p_img_input, .header-left-search) {
 	border : 1px solid;
 	border-radius : 3px;
 }
+#form input, select, textarea{
+	margin: 7px 5px;
+	vertical-align: middle;
+}
 
-.product_table, .user_table, .add_product_table{
+.product_table, .user_table, .add_product_table, .add_product_div{
 	width : inherit;
 	margin : 0 auto;
 	margin-bottom : 70px;
 	border : 2px solid;
 	border-radius : 10px;
+}
+
+.add_product_div{
+	
+	height : 500px;
+	padding: 50px 250px;
+	text-align : left;
+	
+}
+.color_array, .size_array{
+	display : inline;
+	vertical-align: middle;
+	margin : 2px;
+	padding : 2px;
+	border : 2px solid;
+	border-radius : 10px;
+	
+}
+
+.p_del_btn{
+
+	margin : 0px;
+	padding : 0px;
+	vertical-align: middle;
+	
 }
 
 .picture{
@@ -36,7 +69,8 @@ input:not(.p_img_input, .header-left-search) {
 }
 
 textarea{
-	width : 100%;
+	width : 600px;
+	height : 100px;
 	border : 1px solid;
 	resize : none;
 }

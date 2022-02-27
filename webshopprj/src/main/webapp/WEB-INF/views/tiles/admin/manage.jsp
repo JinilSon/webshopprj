@@ -58,47 +58,28 @@
 	
 	<h3>제품 등록</h3>
 	<form action="/manage/add" id="form" method="post" enctype="multipart/form-data" accept-charset="UTF-8" onsubmit="return submit_prod()">
-		<table class="add_product_table">
-			<tr>
-				<td>제품명</td>
-				<td><input type="text" id="p_title_input" name="title"></td>
-			</tr>
-			<tr>
-				<td>가격</td>
-				<td><input type="number" id="p_price_input" name="price"></td>
-			</tr>
-			<tr>
-				<td>제품설명</td>
-				<td><textarea id="p_description_input" cols="40" rows="10" name="description"></textarea></td>
-			</tr>
-			<tr>
-				<td>이미지</td>
-				<td><input type="file" name="img" accept="image/gif, image/jpeg, image/png" class="p_img_input"></td>
-			</tr>
-			<tr>
-				<td>카테고리</td>
-				<td><input type="text" id="p_category_input" name="category" onkeydown="add_category(event)"></td>
-			</tr>
-			<tr>
-				<td>사이즈</td>
-				<td><input type="text" id="p_size_input" name="size"></td>
-			</tr>
-			<tr>
-				<td>색상</td>
-				<td><input type="text" id="p_color_input" name="color"></td>
-			</tr>
-			
-			
-			<tr id="add_indivisuals_line">
-				<td>
-					<button type="button" onclick="add_indivisuals_html()">추가</button>
-				</td>
-			</tr>
-			<tr>
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-				<td colspan="2"><button type="submit">제출</button>
-			</tr>
-					
-		</table>
+		<div class="add_product_div">
+			<h4>제품명</h4>
+			<input type="text" id="p_title_input" name="title">
+			<h4>가격</h4>
+			<input type="number" id="p_price_input" name="price"><br>
+			<h4 id="p_description_h">제품설명</h4>
+			<textarea id="p_description_input" cols="40" rows="10" name="description"></textarea><br>
+			<h4>이미지</h4>
+			<input type="file" name="img" accept="image/gif, image/jpeg, image/png" id="p_img_input" multiple><br>
+			<h4>카테고리</h4>
+			<select id="p_category_input" name="category">
+				<option value="1">카테고리1</option>
+				<option value="2">카테고리2</option>
+			</select><br>
+			<h4>사이즈</h4>
+			<input type="text" id="p_size_input" name="size" onkeypress="add_size(event, this)"><br>
+			<h4>색상</h4>
+			<input type="text" id="p_color_input" name="color" onkeypress="add_size(event, this)"><br>
+			<label id="add_indivisuals_line"></label>
+			<button type="button" onclick="add_indivisuals_html()">추가</button>
+			<input id="csrf_token" type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<button type="submit">제출</button>
+		</div>
 	</form>
 </div>
