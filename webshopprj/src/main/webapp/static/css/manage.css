@@ -45,7 +45,7 @@ input:not(.p_img_input, .header-left-search) {
 	text-align : left;
 	
 }
-.color_array, .size_array{
+.color_array, .size_array, .count_array{
 	display : inline;
 	vertical-align: middle;
 	margin : 2px;
@@ -63,7 +63,7 @@ input:not(.p_img_input, .header-left-search) {
 	
 }
 
-.picture{
+.img{
 	width : 100px;
 	height : 150px;
 }

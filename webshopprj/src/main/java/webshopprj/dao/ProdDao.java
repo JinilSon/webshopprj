@@ -26,8 +26,8 @@ public class ProdDao implements ProdDaoInterf{
 			new RowMapper<Product>() {
 				@Override
 				public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-					Product prod = new Product(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getInt("price"), rs.getInt("discount"),
-							rs.getString("picture"), rs.getString("discription"), rs.getDate("up_date"));
+					Product prod = new Product(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getInt("price"), rs.getString("size"),
+							rs.getString("color"), rs.getInt("count"), rs.getString("img"), rs.getString("discription"), rs.getDate("up_date"));
 					
 					return prod;
 				}
@@ -40,8 +40,8 @@ public class ProdDao implements ProdDaoInterf{
 	@Override
 	public void add(Product prod) {
 		try {
-			jdbcTemplate.update("insert into product(title, category, price, discount, picture, discription) values(?, ?, ?, ?, ?, ?)", 
-					prod.getTitle(), prod.getCategory(), prod.getPrice(), prod.getDiscount(), prod.getPicture(), prod.getDiscription());
+			jdbcTemplate.update("insert into product(title, category, price, size, color, count, img, discription) values(?, ?, ?, ?, ?, ?, ?, ?)", 
+					prod.getTitle(), prod.getCategory(), prod.getPrice(), prod.getSize(), prod.getColor(), prod.getCount(), prod.getImg(), prod.getDiscription());
 		} catch(DuplicateKeyException e) {
 			throw e;	
 			// DuplicateKeyException : primary key 중복 시 발생하는 예외
@@ -52,8 +52,8 @@ public class ProdDao implements ProdDaoInterf{
 	public void update(Product prod) {
 		try {
 			jdbcTemplate.update("update product set"
-					+ "title=?, category=?, price=?, discount=?, picture=?, discription=?", 
-					prod.getTitle(), prod.getCategory(), prod.getPrice(), prod.getDiscount(), prod.getPicture(), prod.getDiscription());
+					+ "title=?, category=?, price=?, size=?, color=?, count=?, img=?, discription=?", 
+					prod.getTitle(), prod.getCategory(), prod.getPrice(), prod.getSize(), prod.getColor(), prod.getCount(), prod.getImg(), prod.getDiscription());
 		} catch(DataAccessException e) {
 			throw e;	
 			// DataAccessException : 런타임예외의 한 종류로, 예외처리로 할 수 있는 것이 한정되어 있는 런타임 특성 상,

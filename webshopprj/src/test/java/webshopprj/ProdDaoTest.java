@@ -36,9 +36,9 @@ public class ProdDaoTest {
 	
 	@Before			// 테스트 케이스 시작 전
 	public void setUp() throws Exception {
-		prod1 = new Product("흰셔츠", "셔츠", 15000, 10, "/img/img.jpg", "XX제작사에서 만든 흰 셔츠입니다.");
-		prod2 = new Product("청바지", "청바지", 20000, 8, null, "XXX청바지 메이커의 청바지 입니다.");
-	}
+		prod1 = new Product("흰셔츠", "셔츠", 15000, "S", "브라운", 20, "/img/img.jpg", "XX제작사에서 만든 흰 셔츠입니다.");
+		prod2 = new Product("청바지", "청바지", 20000, "M", "실버", 50, null, "XXX청바지 메이커의 청바지 입니다.");
+	}					// 타이틀, 카테고리, 가격, 사이즈, 색상, 개수, img_url, 설명
 	
 	@Test			// 테스트 케이스
 	public void test() {
@@ -51,7 +51,7 @@ public class ProdDaoTest {
 			e.printStackTrace();
 		}
 		
-		assertThat(prod1.getDiscount(), is(get_prod1.getDiscount()));
+		assertThat(prod1.getCategory(), is(get_prod1.getCategory()));
 		
 	}
 	

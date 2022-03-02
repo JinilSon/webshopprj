@@ -29,8 +29,8 @@ public class AdminServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		prod1 = new Product("흰셔츠", "셔츠", 15000, 10, "/img/img.jpg", "XX제작사에서 만든 흰 셔츠입니다.");
-		prod2 = new Product("청바지", "청바지", 20000, 8, null, "XXX청바지 메이커의 청바지 입니다.");
+		prod1 = new Product("흰셔츠", "셔츠", 15000, "S", "브라운", 20, "/img/img.jpg", "XX제작사에서 만든 흰 셔츠입니다.");
+		prod2 = new Product("청바지", "청바지", 20000, "M", "실버", 50, null, "XXX청바지 메이커의 청바지 입니다.");
 		user1 = new User("aaaa", "aaaa", "홍길동", "1999-11-29", "010-2433-4522", "fdsafdsm@naver.com", "USER");
 		
 	}

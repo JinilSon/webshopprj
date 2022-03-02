@@ -1,5 +1,7 @@
 var size = new Array();
 var color = new Array();
+var count = new Array();
+
 
 function submit_prod(){
 	var title = $('#p_title_input').val();
@@ -9,24 +11,27 @@ function submit_prod(){
 	var category = $('#p_category_input').val();
 	var csrf_token = $('#csrf_token');
 
-	alert(csrf_token.attr('name'));
-
+	
 	if($('#p_title_input').val() == ""){
 		alert("상품명을 입력해주세요")
 		return false;
-	}
-	else if($('#p_category_input').val() == ""){
+	}else if($('#p_category_input').val() == ""){
 		alert("카테고리를 입력해주세요")
 		return false;
-	}
-	else if($('#p_price_input').val() == ""){
+	}else if($('#p_price_input').val() == ""){
 		alert("가격를 입력해주세요")
 		return false;
-	}
-	else if($('#p_description_input').val() == ""){
+	}else if($('#p_description_input').val() == ""){
 		alert("설명을 입력해주세요")
 		return false;
+	}else if(size.length == 0){
+		alert("사이즈을 입력 후 Enter를 눌러 추가해주세요");
+		return false;
+	}else if(color.length == 0){
+		alert("색상을 입력 후 Enter를 눌러 추가해주세요");
+		return false;
 	}
+	
 	
 	var formData = new FormData();
 	for(let i=0; i < img.length; i++)
@@ -36,6 +41,8 @@ function submit_prod(){
 		formData.append("size", size[i]);
 	for(let i=0; i < color.length; i++)
 		formData.append("color", color[i]);
+	for(let i=0; i < count.length; i++)
+		formData.append("count", count[i]);
 	formData.append("title", title);
 	formData.append(csrf_token.attr('name'), csrf_token.attr('value'));
 	formData.append("price", price);
@@ -51,6 +58,7 @@ function submit_prod(){
 		contentType : false,
 		processData : false,
 		success : function(){
+			alert(csrf_token.attr('name'));
 			alert("success");
 			location.reload();
 		},
@@ -80,22 +88,27 @@ function add_size(e, ths){
 	var name = $(ths).attr('name') + "_array";	// 해당 input 태그의 'name' 속성명(class 구분점으로 사용)
 	
 	if(e.key == 'Enter'){
+		if(text == "")
+			return false;
+		// 값이 존재하지 않을 경우 action X
+		
 		e.preventDefault();
 		// .keyCode 속성은 deprecated 되었다.	
 		alert(name);
 		var arr;
 		// 참조를 위한 지역변수 생성('='을 통한 얕은 복사)
 		
-		if(name == "color_array")
+		if(name == "color_array"){
 			arr = color;
-		else if(name == "size_array")
+		}else if(name == "size_array"){
 			arr = size;
-		// 각 input에 맞는 arr와 매칭
+		}else if(name == "count_array"){
+			arr = count;
+		}
+		// 각 input에 맞는 arr와 매칭  
 
 		
-		if(text == "")
-			return false;
-		// 값이 존재하지 않을 경우 action X
+		
 
 		arr.push(text);
 		$(ths).after(

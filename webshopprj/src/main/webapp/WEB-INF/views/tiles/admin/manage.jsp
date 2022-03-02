@@ -11,7 +11,9 @@
 			<td>제품명</td>
 			<td>카테고리</td>
 			<td>제품가격</td>
-			<td>할인률</td>
+			<td>사이즈</td>
+			<td>색상</td>
+			<td>개수</td>
 			<td>제품사진</td>
 			<td>제품등록일자</td>
 			<td>제품설명</td>
@@ -22,8 +24,10 @@
 			<td>${prodList.title}</td>
 			<td>${prodList.category}</td>
 			<td>${prodList.price}</td>
-			<td>${prodList.discount}</td>
-			<td><img class="picture" src="${prodList.picture}" alt="${prodList.title}"></td>
+			<td>${prodList.size}</td>
+			<td>${prodList.color}</td>
+			<td>${prodList.count}</td>
+			<td><img class="img" src="${prodList.img}" alt="${prodList.title}"></td>
 			<td>${prodList.discription}</td>
 			<td>${prodList.up_Date}</td>
 		</tr>
@@ -76,6 +80,8 @@
 			<input type="text" id="p_size_input" name="size" onkeypress="add_size(event, this)"><br>
 			<h4>색상</h4>
 			<input type="text" id="p_color_input" name="color" onkeypress="add_size(event, this)"><br>
+			<h4>개수</h4>
+			<input type="number" id="p_count_input" name="count" onkeypress="add_size(event, this)"><br>
 			<label id="add_indivisuals_line"></label>
 			<button type="button" onclick="add_indivisuals_html()">추가</button>
 			<input id="csrf_token" type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

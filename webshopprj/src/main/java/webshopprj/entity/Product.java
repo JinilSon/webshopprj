@@ -8,38 +8,46 @@ public class Product {
 	private String title;	// 제품명
 	private String category; // 카테고리
 	private int price;		// 가격
-	private int discount;	// 할인률
-	private String picture;	// 제품사진 url
+	private String size;	// 사이즈
+	private String color;	// 색상
+	private int count;		// 개수
+	private String img;	// 제품사진 url
 	private String discription; // 제품설명
 	private Date up_Date;	// 등록일자(자동생성)
 	
-	public Product(int id, String title, String category, int price, int discount, String picture, String discription, Date up_Date) {
+	public Product(int id, String title, String category, int price, String size, String color, int count,
+			String img, String discription, Date up_Date) {
 		this.id = id;
 		this.title = title;
 		this.category = category;
 		this.price = price;
-		this.discount = discount;
-		this.picture = picture;
+		this.size = size;
+		this.color = color;
+		this.count = count;
+		this.img = img;
 		this.discription = discription;
 		this.up_Date = up_Date;
-	}	
-	// 다운로드용 생성자
+	}
+	// 다운로드용
 	
-	public Product(String title, String category, int price, int discount, String picture, String discription) {
+	public Product(String title, String category, int price, String size, String color, int count,
+			String img, String discription) {
 		this.title = title;
 		this.category = category;
 		this.price = price;
-		this.discount = discount;
-		this.picture = picture;
+		this.size = size;
+		this.color = color;
+		this.count = count;
+		this.img = img;
 		this.discription = discription;
 	}
-	// 업로드용 생성자
+	// 업로드용
 	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
-//		this.id = id;
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -59,17 +67,29 @@ public class Product {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getDiscount() {
-		return discount;
+	public String getSize() {
+		return size;
 	}
-	public void setDiscount(int discount) {
-		this.discount = discount;
+	public void setSize(String size) {
+		this.size = size;
 	}
-	public String getPicture() {
-		return picture;
+	public String getColor() {
+		return color;
 	}
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String picture) {
+		this.img = picture;
 	}
 	public String getDiscription() {
 		return discription;
@@ -81,8 +101,8 @@ public class Product {
 		return up_Date;
 	}
 	public void setUp_Date(Date up_Date) {
-//		this.up_Date = up_Date;
+		this.up_Date = up_Date;
 	}
 	
-
+	
 }
